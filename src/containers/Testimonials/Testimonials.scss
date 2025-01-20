@@ -91,21 +91,31 @@
       opacity: 0.8;
     }
 
+    &:hover .app__testimonial-marker {
+      transform: translateX(-50%) scale(1.1);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
     .app__testimonial-marker {
       position: absolute;
       top: -20px;
       left: 50%;
       transform: translateX(-50%);
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      background-color: var(--primary-color);
+      background: linear-gradient(135deg, #313bac, lighten(#313bac, 10%));
       display: flex;
       justify-content: center;
       align-items: center;
       color: var(--white-color);
       font-weight: bold;
+      font-size: 1.2rem;
       z-index: 15;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border: 3px solid var(--white-color);
+      transition: all 0.3s ease;
+      cursor: pointer;
     }
 
     .app__testimonial-content {
