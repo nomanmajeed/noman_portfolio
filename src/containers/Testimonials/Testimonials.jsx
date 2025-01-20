@@ -7,7 +7,6 @@ import "./Testimonials.scss";
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const query = '*[_type == "testimonials"]';
@@ -23,20 +22,8 @@ const Testimonials = () => {
       });
   }, []);
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
-  };
-
   const getTestimonialClass = (index) => {
-    if (index === currentIndex) return "app__testimonial-item active";
+    // if (index === currentIndex) return "app__testimonial-item active";
     return "app__testimonial-item";
   };
 
@@ -55,7 +42,7 @@ const Testimonials = () => {
                 className={getTestimonialClass(index)}
                 whileInView={{ opacity: [0, 1] }}
                 transition={{ duration: 0.5 }}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => {}}
               >
                 <div className="app__testimonial-marker">
                   {testimonial.order}
@@ -85,18 +72,10 @@ const Testimonials = () => {
 
       {testimonials.length > 1 && (
         <div className="app__testimonials-controls">
-          <button
-            className="slider-btn prev"
-            onClick={handlePrev}
-            aria-label="Previous Testimonial"
-          >
+          <button className="slider-btn prev" aria-label="Previous Testimonial">
             <HiChevronLeft />
           </button>
-          <button
-            className="slider-btn next"
-            onClick={handleNext}
-            aria-label="Next Testimonial"
-          >
+          <button className="slider-btn next" aria-label="Next Testimonial">
             <HiChevronRight />
           </button>
         </div>
