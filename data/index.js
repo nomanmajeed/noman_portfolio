@@ -3,5 +3,6 @@ import worksData from './works.json';
 import skillsData from './skills.json';
 import experiencesData from './experiences.json';
 import testimonialsData from './testimonials.json';
+import profileData from './profile.json';
 
-export { aboutsData, worksData, skillsData, experiencesData, testimonialsData };
+export { aboutsData, worksData, skillsData, experiencesData, testimonialsData, profileData };

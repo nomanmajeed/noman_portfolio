@@ -4,7 +4,7 @@ import './Footer.scss';
 
 export function Footer() {
   return (
-    <div className="footer app__flex">
+    <div id="contact" className="footer app__flex">
       <div className="footer__content">
         <div className="footer__text">
           <p>{new Date().getFullYear()} Noman Majeed</p>

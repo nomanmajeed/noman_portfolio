@@ -1,0 +1,11 @@
+{
+  "name": "Noman Majeed",
+  "tagline": "frontend web developer based in pakistan.",
+  "greeting": "Hi! I'm Noman Majeed 👋",
+  "bio": "I am a frontend developer with experience in building modern web applications. I specialize in React, Next.js, and creating scalable, user-friendly interfaces.",
+  "languages": ["HTML, CSS, JavaScript", "React Js, Next Js"],
+  "education": "B.Tech in Computer Science",
+  "projectsCount": "Built more than 5 projects",
+  "resumeUrl": "#",
+  "connectUrl": "#contact"
+}
