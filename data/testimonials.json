@@ -1,0 +1,20 @@
+[
+  {
+    "name": "John Doe",
+    "company": "Tech Lead at Company A",
+    "imgurl": "profile",
+    "feedback": "Excellent developer with great attention to detail. Delivered our project on time and exceeded expectations."
+  },
+  {
+    "name": "Jane Smith",
+    "company": "Product Manager at Startup B",
+    "imgurl": "profile",
+    "feedback": "Professional, communicative, and highly skilled. Would definitely work with again on future projects."
+  },
+  {
+    "name": "Mike Johnson",
+    "company": "CTO at Agency C",
+    "imgurl": "profile",
+    "feedback": "Strong technical expertise and proactive problem-solving. A valuable team member."
+  }
+]

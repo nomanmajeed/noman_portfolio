@@ -1,0 +1,34 @@
+[
+  {
+    "title": "E-Commerce Platform",
+    "description": "Full-stack e-commerce solution with cart, checkout, and admin dashboard.",
+    "projectLink": "https://github.com",
+    "codeLink": "https://github.com",
+    "imgUrl": "amazon",
+    "tags": ["React JS", "Web App"]
+  },
+  {
+    "title": "Fitness Tracker App",
+    "description": "Mobile app for tracking workouts, nutrition, and fitness goals.",
+    "projectLink": "https://github.com",
+    "codeLink": "https://github.com",
+    "imgUrl": "bolt",
+    "tags": ["Mobile App", "Flutter"]
+  },
+  {
+    "title": "Design Portfolio",
+    "description": "Creative portfolio showcase with animations and modern UI design.",
+    "projectLink": "https://github.com",
+    "codeLink": "https://github.com",
+    "imgUrl": "figma",
+    "tags": ["UI/UX", "React JS"]
+  },
+  {
+    "title": "Task Management Tool",
+    "description": "Collaborative task management with real-time updates and team features.",
+    "projectLink": "https://github.com",
+    "codeLink": "https://github.com",
+    "imgUrl": "spotify",
+    "tags": ["Web App", "React JS"]
+  }
+]

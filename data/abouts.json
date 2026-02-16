@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Web Development",
+    "description": "I develop modern web applications using React, Node.js, and modern tooling for scalable and performant user experiences.",
+    "imgUrl": "about01"
+  },
+  {
+    "title": "UI/UX Design",
+    "description": "I create intuitive and aesthetically pleasing interfaces that prioritize user experience and accessibility.",
+    "imgUrl": "about02"
+  },
+  {
+    "title": "Mobile Development",
+    "description": "I build cross-platform mobile applications with Flutter and React Native for iOS and Android.",
+    "imgUrl": "about03"
+  },
+  {
+    "title": "Backend & API",
+    "description": "I design and implement robust REST and GraphQL APIs with Node.js, Python, and serverless solutions.",
+    "imgUrl": "about04"
+  }
+]

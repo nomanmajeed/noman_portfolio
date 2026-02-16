@@ -1,0 +1,12 @@
+[
+  { "name": "React", "bgColor": "#edf2f8", "icon": "react" },
+  { "name": "JavaScript", "bgColor": "#edf2f8", "icon": "javascript" },
+  { "name": "TypeScript", "bgColor": "#edf2f8", "icon": "typescript" },
+  { "name": "Node.js", "bgColor": "#edf2f8", "icon": "node" },
+  { "name": "Python", "bgColor": "#edf2f8", "icon": "python" },
+  { "name": "Sass", "bgColor": "#edf2f8", "icon": "sass" },
+  { "name": "Redux", "bgColor": "#edf2f8", "icon": "redux" },
+  { "name": "GraphQL", "bgColor": "#edf2f8", "icon": "graphql" },
+  { "name": "Git", "bgColor": "#edf2f8", "icon": "git" },
+  { "name": "Figma", "bgColor": "#edf2f8", "icon": "figma" }
+]
