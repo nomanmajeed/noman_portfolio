@@ -12,6 +12,20 @@
   --gray-color: #6b7688;
   --brown-color: #46364a;
   --white-color: #ffffff;
+
+  /* Section consistency */
+  --section-padding-x: 2.5rem;
+  --section-padding-y: 4rem;
+  --section-padding-bottom: 6rem;
+  --section-padding-mobile-x: 1.5rem;
+  --section-padding-mobile-y: 3rem;
+  --section-padding-mobile-bottom: 4rem;
+  --section-max-width: 1100px;
+
+  /* Card styling */
+  --card-border: 1px solid #e5e7eb;
+  --card-radius: 10px;
+  --card-padding: 1.25rem;
 }
 
 * {
@@ -51,10 +65,12 @@
   flex: 1;
   width: 100%;
   flex-direction: column;
-  padding: 4rem 2rem;
+  padding: var(--section-padding-y) var(--section-padding-x) var(--section-padding-bottom);
+  max-width: var(--section-max-width);
+  margin: 0 auto;
 
-  @media screen and (max-width: 450px) {
-    padding: 4rem 1rem 2rem;
+  @media screen and (max-width: 768px) {
+    padding: var(--section-padding-mobile-y) var(--section-padding-mobile-x) var(--section-padding-mobile-bottom);
   }
 }
 

@@ -5,8 +5,9 @@
 }
 
 .app__skills-container {
-  width: 80%;
-  margin-top: 3rem;
+  width: 100%;
+  max-width: var(--section-max-width);
+  margin-top: 2rem;
   display: flex;
   flex-direction: row;
 

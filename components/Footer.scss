@@ -7,7 +7,7 @@
   flex: 1;
   width: 100%;
   color: var(--white-color);
-  padding: 4rem 2rem;
+  padding: var(--section-padding-y) var(--section-padding-x);
 
   &::before {
     content: "";
@@ -19,6 +19,10 @@
     background-color: var(--secondary-color);
     opacity: 0.9;
     z-index: 1;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: var(--section-padding-mobile-y) var(--section-padding-mobile-x);
   }
 
   &__content {

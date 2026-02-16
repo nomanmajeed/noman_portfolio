@@ -10,7 +10,7 @@
     var(--white-color) 60%
   );
   overflow: hidden;
-  padding: 8rem 2rem 4rem;
+  padding: 8rem var(--section-padding-x) var(--section-padding-bottom);
 
   &__glow {
     position: absolute;
@@ -125,8 +125,8 @@
     }
   }
 
-  @media (max-width: 600px) {
-    padding: 6rem 1.5rem 3rem;
+  @media (max-width: 768px) {
+    padding: 6rem var(--section-padding-mobile-x) var(--section-padding-mobile-bottom);
 
     &__profile-img {
       width: 120px;
