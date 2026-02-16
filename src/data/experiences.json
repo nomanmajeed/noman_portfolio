@@ -1,0 +1,37 @@
+[
+  {
+    "year": "2024",
+    "works": [
+      {
+        "name": "Senior Developer",
+        "company": "Tech Company",
+        "desc": "Led development of multiple web applications using React and Node.js."
+      },
+      {
+        "name": "Full Stack Developer",
+        "company": "Startup Inc",
+        "desc": "Built scalable APIs and implemented real-time features for SaaS product."
+      }
+    ]
+  },
+  {
+    "year": "2023",
+    "works": [
+      {
+        "name": "Frontend Developer",
+        "company": "Digital Agency",
+        "desc": "Developed responsive websites and React applications for various clients."
+      }
+    ]
+  },
+  {
+    "year": "2022",
+    "works": [
+      {
+        "name": "Junior Developer",
+        "company": "Software Firm",
+        "desc": "Contributed to web projects and learned industry best practices."
+      }
+    ]
+  }
+]

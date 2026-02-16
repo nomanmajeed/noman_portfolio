@@ -1,29 +1,15 @@
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
-import { client, urlFor } from "../../client";
+import { images } from "../../constants";
+import { testimonialsData } from "../../data";
 import "./Testimonials.scss";
 
 const Testimonials = () => {
-  const [testimonials, setTestimonials] = useState([]);
-
-  useEffect(() => {
-    const query = '*[_type == "testimonials"]';
-
-    client
-      .fetch(query)
-      .then((data) => {
-        console.log("Fetched Testimonials:", data);
-        setTestimonials(data.map((t, index) => ({ ...t, order: index + 1 })));
-      })
-      .catch((error) => {
-        console.error("Error fetching testimonials:", error);
-      });
-  }, []);
+  const testimonials = testimonialsData.map((t, index) => ({ ...t, order: index + 1 }));
 
   const getTestimonialClass = (index) => {
-    // if (index === currentIndex) return "app__testimonial-item active";
     return "app__testimonial-item";
   };
 
@@ -38,7 +24,7 @@ const Testimonials = () => {
           <div className="app__testimonials-container">
             {testimonials.map((testimonial, index) => (
               <motion.div
-                key={testimonial._id}
+                key={testimonial.name + index}
                 className={getTestimonialClass(index)}
                 whileInView={{ opacity: [0, 1] }}
                 transition={{ duration: 0.5 }}
@@ -53,10 +39,12 @@ const Testimonials = () => {
                 </div>
 
                 <div className="app__testimonial-profile">
-                  <img
-                    src={testimonial.imgurl ? urlFor(testimonial.imgurl).url() : undefined}
-                    alt={testimonial.name}
-                  />
+                  {testimonial.imgurl && (
+                    <img
+                      src={images[testimonial.imgurl]}
+                      alt={testimonial.name}
+                    />
+                  )}
                   <div className="app__testimonial-name">
                     {testimonial.name}
                   </div>
