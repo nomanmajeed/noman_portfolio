@@ -1,25 +1,10 @@
 .footer {
   position: relative;
-  background: url("/bgIMG.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat;
+  background: var(--section-gradient-b);
   flex: 1;
   width: 100%;
-  color: var(--white-color);
+  color: var(--black-color);
   padding: var(--section-padding-y) var(--section-padding-x);
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--secondary-color);
-    opacity: 0.9;
-    z-index: 1;
-  }
 
   @media screen and (max-width: 768px) {
     padding: var(--section-padding-mobile-y) var(--section-padding-mobile-x);
@@ -52,7 +37,7 @@
     p {
       font-size: 0.875rem;
       font-weight: 500;
-      opacity: 0.8;
+      opacity: 0.9;
     }
   }
 
@@ -66,7 +51,7 @@
     }
 
     a {
-      color: var(--white-color);
+      color: var(--secondary-color);
       text-decoration: none;
       font-size: 0.875rem;
       transition: opacity 0.3s ease;

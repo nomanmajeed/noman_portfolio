@@ -4,11 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 252, 250, 1) 0%,
-    var(--white-color) 60%
-  );
+  background: var(--section-gradient-a);
   overflow: hidden;
   padding: 8rem var(--section-padding-x) var(--section-padding-bottom);
 

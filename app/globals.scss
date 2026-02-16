@@ -13,6 +13,10 @@
   --brown-color: #46364a;
   --white-color: #ffffff;
 
+  /* Alternating section gradients (1st/3rd/5th vs 2nd/4th/6th) */
+  --section-gradient-a: linear-gradient(180deg, #f8fafc 0%, #f0f4f8 30%, #e8eef5 60%, #e2eaf2 100%);
+  --section-gradient-b: linear-gradient(180deg, #faf8f6 0%, #f5f2ef 30%, #efece8 60%, #eae7e2 100%);
+
   /* Section consistency */
   --section-padding-x: 2.5rem;
   --section-padding-y: 4rem;
@@ -36,16 +40,26 @@
 }
 
 .app {
-  background-color: var(--white-color);
   font-family: var(--font-base);
+  min-height: 100vh;
 }
 
-.app__whitebg {
-  background-color: var(--white-color);
+/* Alternating backgrounds: 1st/3rd/5th = gradient-a, 2nd/4th/6th = gradient-b */
+#home,
+#work,
+#testimonials {
+  background: var(--section-gradient-a);
 }
 
+#about,
+#skills,
+.footer {
+  background: var(--section-gradient-b);
+}
+
+.app__whitebg,
 .app__primarybg {
-  background-color: var(--primary-color);
+  background: transparent;
 }
 
 .app__container {
