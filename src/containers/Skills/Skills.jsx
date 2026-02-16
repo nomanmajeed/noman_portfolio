@@ -14,16 +14,20 @@ const Skills = () => {
     const query = '*[_type == "experiences"]';
     const skillsQuery = '*[_type == "skills"]';
 
-    client.fetch(query).then((data) => {
-      data = data.filter((item) => !item._id.startsWith('drafts'))
-      data = data.sort((a, b) => b.year - a.year)
-      setExperiences(data);
-    });
+    client.fetch(query)
+      .then((data) => {
+        data = data.filter((item) => !item._id.startsWith('drafts'));
+        data = data.sort((a, b) => b.year - a.year);
+        setExperiences(data);
+      })
+      .catch((err) => console.error('Error fetching experiences:', err));
 
-    client.fetch(skillsQuery).then((data) => {
-      data = data.filter((item) => !item._id.startsWith('drafts'))
-      setSkills(data);
-    });
+    client.fetch(skillsQuery)
+      .then((data) => {
+        data = data.filter((item) => !item._id.startsWith('drafts'));
+        setSkills(data);
+      })
+      .catch((err) => console.error('Error fetching skills:', err));
   }, []);
 
   return (
@@ -43,7 +47,7 @@ const Skills = () => {
                 className="app__flex"
                 style={{ backgroundColor: skill.bgColor }}
               >
-                <img src={urlFor(skill.icon)} alt={skill.name} />
+                <img src={skill.icon ? urlFor(skill.icon).url() : ''} alt={skill.name} />
               </div>
               <p className="p-text">{skill.name}</p>
             </motion.div>

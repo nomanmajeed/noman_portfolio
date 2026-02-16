@@ -11,10 +11,12 @@ const About = () => {
   useEffect(() => {
     const query = '*[_type == "abouts"]';
 
-    client.fetch(query).then((data) => {
-      data = data.filter((item) => !item._id.startsWith('drafts'))
-      setAbouts(data);
-    });
+    client.fetch(query)
+      .then((data) => {
+        data = data.filter((item) => !item._id.startsWith('drafts'));
+        setAbouts(data);
+      })
+      .catch((err) => console.error('Error fetching abouts:', err));
   }, []);
 
   return (

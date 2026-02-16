@@ -54,7 +54,7 @@ const Testimonials = () => {
 
                 <div className="app__testimonial-profile">
                   <img
-                    src={testimonial.imgurl && urlFor(testimonial.imgurl)}
+                    src={testimonial.imgurl ? urlFor(testimonial.imgurl).url() : undefined}
                     alt={testimonial.name}
                   />
                   <div className="app__testimonial-name">
