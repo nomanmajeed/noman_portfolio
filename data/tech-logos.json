@@ -1,0 +1,50 @@
+[
+  {
+    "id": "react",
+    "description": "React",
+    "image": "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/react-wordmark.svg",
+    "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
+  },
+  {
+    "id": "nextjs",
+    "description": "Next.js",
+    "image": "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/nextjs-wordmark.svg",
+    "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
+  },
+  {
+    "id": "typescript",
+    "description": "TypeScript",
+    "image": "https://svgl.app/library/typescript.svg",
+    "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
+  },
+  {
+    "id": "tailwind",
+    "description": "Tailwind CSS",
+    "image": "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/tailwind-wordmark.svg",
+    "className": "h-4 w-auto opacity-70 dark:brightness-0 dark:invert"
+  },
+  {
+    "id": "figma",
+    "description": "Figma",
+    "image": "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/figma-wordmark.svg",
+    "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
+  },
+  {
+    "id": "nodejs",
+    "description": "Node.js",
+    "image": "https://svgl.app/library/nodejs.svg",
+    "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
+  },
+  {
+    "id": "vercel",
+    "description": "Vercel",
+    "image": "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/vercel-wordmark.svg",
+    "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
+  },
+  {
+    "id": "graphql",
+    "description": "GraphQL",
+    "image": "https://svgl.app/library/graphql.svg",
+    "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
+  }
+]

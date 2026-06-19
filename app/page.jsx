@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/Navbar';
 import { Header } from '@/components/Header';
 import { About } from '@/components/About';
+import { TechCloud } from '@/components/TechCloud';
 import { Skills } from '@/components/Skills';
 import { Work } from '@/components/Work';
 import { Testimonials } from '@/components/Testimonials';
@@ -12,6 +13,7 @@ export default function Home() {
       <Navbar />
       <Header />
       <About />
+      <TechCloud />
       <Skills />
       <Work />
       <Testimonials />

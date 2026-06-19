@@ -2,10 +2,22 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import {
+  Code2,
+  GraduationCap,
+  MapPin,
+  Palette,
+  Server,
+  Smartphone,
+  Sparkles,
+} from 'lucide-react';
 import { images } from '@/constants/images';
-import { profileData } from '@/data';
+import { aboutsData, profileData } from '@/data';
 import { getImgSrc } from '@/lib/imageUtils';
 import { SectionHeader } from './SectionHeader';
+
+const PROFILE_FALLBACK =
+  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80';
 
 const stats = [
   { value: '3+', label: 'Years Experience' },
@@ -13,35 +25,80 @@ const stats = [
   { value: '5+', label: 'Happy Clients' },
 ];
 
-const tools = [
-  { key: 'react', label: 'React' },
-  { key: 'javascript', label: 'JavaScript' },
-  { key: 'typescript', label: 'TypeScript' },
-  { key: 'node', label: 'Node.js' },
-  { key: 'figma', label: 'Figma' },
-  { key: 'git', label: 'Git' },
-];
+const serviceIcons = {
+  'Web Development': Code2,
+  'UI/UX Design': Palette,
+  'Mobile Development': Smartphone,
+  'Backend & API': Server,
+};
 
-function AnimatedStat({ stat, index }) {
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.15 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+function BentoCard({ className = '', children, delay = 0 }) {
   return (
     <motion.div
-      className="text-center"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
+      variants={itemVariants}
+      custom={delay}
+      className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm transition-colors hover:border-indigo-400/30 hover:bg-white/[0.06] ${className}`}
     >
-      <span className="mb-1.5 block bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text font-[family-name:var(--font-playfair)] text-3xl font-bold text-transparent">
+      <div
+        className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-indigo-500/10 blur-2xl transition-opacity opacity-0 group-hover:opacity-100"
+        aria-hidden
+      />
+      {children}
+    </motion.div>
+  );
+}
+
+function StatCard({ stat }) {
+  return (
+    <BentoCard className="flex flex-col justify-center text-center">
+      <span className="mb-1 bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text font-[family-name:var(--font-playfair)] text-3xl font-bold text-transparent md:text-4xl">
         {stat.value}
       </span>
-      <span className="text-xs font-medium leading-snug text-zinc-500">{stat.label}</span>
-    </motion.div>
+      <span className="text-xs font-medium uppercase tracking-wider text-zinc-500">
+        {stat.label}
+      </span>
+    </BentoCard>
+  );
+}
+
+function ServiceCard({ service }) {
+  const Icon = serviceIcons[service.title] ?? Sparkles;
+
+  return (
+    <BentoCard className="flex flex-col gap-4">
+      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/10 ring-1 ring-indigo-500/20">
+        <Icon className="h-5 w-5 text-indigo-300" strokeWidth={1.75} />
+      </div>
+      <div>
+        <h3 className="mb-2 text-base font-semibold text-white">{service.title}</h3>
+        <p className="text-sm leading-relaxed text-zinc-400">{service.description}</p>
+      </div>
+    </BentoCard>
   );
 }
 
 export function About() {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
+
+  const profileImage = getImgSrc(images.profile) || PROFILE_FALLBACK;
 
   return (
     <section
@@ -50,90 +107,95 @@ export function About() {
       className="relative overflow-hidden bg-zinc-950 px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
+      <div className="pointer-events-none absolute -left-32 top-1/4 h-[420px] w-[420px] rounded-full bg-indigo-600/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 bottom-0 h-[360px] w-[360px] rounded-full bg-purple-600/10 blur-3xl" />
 
       <div className="relative z-[2] mx-auto max-w-6xl">
-        <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1fr] lg:gap-16">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-          >
-            <div className="relative">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-14 text-center"
+        >
+          <SectionHeader
+            label="About Me"
+            title="Building products people love to use"
+            subtitle="A frontend developer focused on clean code, thoughtful design, and shipping polished experiences."
+            centered
+          />
+        </motion.div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+          className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-12"
+        >
+          <motion.div variants={itemVariants} className="lg:col-span-5">
+            <div className="group relative h-full min-h-[360px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-3 backdrop-blur-sm md:min-h-[480px]">
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500/10 via-transparent to-purple-500/10 opacity-60" />
               <img
-                src={getImgSrc(images.profile)}
+                src={profileImage}
                 alt={profileData.name}
-                className="relative z-[2] h-[350px] w-full rounded-3xl object-cover md:h-[420px]"
+                className="relative z-[1] h-full min-h-[340px] w-full rounded-2xl object-cover md:min-h-[456px]"
               />
-              <div className="absolute -inset-2 -z-[1] rounded-[28px] border-2 border-indigo-500/20" />
-              <div className="absolute -bottom-3 -right-3 -z-[1] h-20 w-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 opacity-20" />
+              <div className="absolute inset-3 rounded-2xl ring-1 ring-inset ring-white/10" />
+
+              <div className="absolute bottom-6 left-6 right-6 z-[2] flex items-center justify-between gap-3 rounded-2xl border border-white/10 bg-black/60 px-4 py-3 backdrop-blur-md">
+                <div>
+                  <p className="text-sm font-semibold text-white">{profileData.name}</p>
+                  <p className="text-xs text-zinc-400">{profileData.tagline}</p>
+                </div>
+                <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-500/15 px-2.5 py-1 text-[11px] font-medium text-emerald-300 ring-1 ring-emerald-500/25">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+                  Open to work
+                </span>
+              </div>
             </div>
           </motion.div>
 
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <SectionHeader
-                label="About Me"
-                title="Crafting digital experiences with passion & precision"
-              />
-            </motion.div>
+          <div className="flex flex-col gap-4 lg:col-span-7">
+            <BentoCard>
+              <p className="mb-4 text-base leading-relaxed text-zinc-300">{profileData.bio}</p>
+              <p className="text-base leading-relaxed text-zinc-400">
+                I turn ideas into fast, accessible interfaces — from landing pages to full-scale
+                web apps — with React, Next.js, and a sharp eye for detail.
+              </p>
 
-            <motion.p
-              className="mb-4 text-base leading-relaxed text-zinc-400"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              I&apos;m a frontend developer based in Pakistan with a passion for building
-              beautiful, performant web applications. I specialize in React and Next.js,
-              turning complex problems into simple, elegant interfaces.
-            </motion.p>
-
-            <motion.p
-              className="mb-8 text-base leading-relaxed text-zinc-400"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              When I&apos;m not coding, you&apos;ll find me exploring new technologies,
-              contributing to open source, or designing user interfaces that people love to use.
-            </motion.p>
-
-            <div className="mb-10 grid grid-cols-3 gap-6 border-y border-white/10 py-6">
-              {stats.map((stat, i) => (
-                <AnimatedStat key={stat.label} stat={stat} index={i} />
-              ))}
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.6 }}
-            >
-              <span className="mb-4 block text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                Tech Stack
-              </span>
-              <div className="flex flex-wrap gap-2.5">
-                {tools.map((tool, i) => (
-                  <motion.div
-                    key={tool.key}
-                    className="flex cursor-default items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-indigo-400/50 hover:bg-indigo-500/10"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.7 + i * 0.05, type: 'spring', stiffness: 300 }}
+              <div className="mt-6 flex flex-wrap gap-2.5">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-zinc-300">
+                  <MapPin className="h-3.5 w-3.5 text-indigo-300" />
+                  Pakistan
+                </span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-zinc-300">
+                  <GraduationCap className="h-3.5 w-3.5 text-indigo-300" />
+                  {profileData.education}
+                </span>
+                {profileData.languages.map((lang) => (
+                  <span
+                    key={lang}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-zinc-300"
                   >
-                    <img src={getImgSrc(images[tool.key])} alt={tool.label} className="h-5 w-5 object-contain" />
-                    <span className="text-sm font-medium text-zinc-300">{tool.label}</span>
-                  </motion.div>
+                    <Code2 className="h-3.5 w-3.5 text-indigo-300" />
+                    {lang}
+                  </span>
                 ))}
               </div>
-            </motion.div>
+            </BentoCard>
+
+            <div className="grid grid-cols-3 gap-4">
+              {stats.map((stat) => (
+                <StatCard key={stat.label} stat={stat} />
+              ))}
+            </div>
           </div>
-        </div>
+
+          {aboutsData.map((service) => (
+            <div key={service.title} className="md:col-span-1 lg:col-span-3">
+              <ServiceCard service={service} />
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
