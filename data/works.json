@@ -1,34 +1,42 @@
 [
   {
-    "title": "E-Commerce Platform",
-    "description": "Full-stack e-commerce solution with cart, checkout, and admin dashboard.",
-    "projectLink": "https://github.com",
-    "codeLink": "https://github.com",
-    "imgUrl": "amazon",
-    "tags": ["React JS", "Web App"]
-  },
-  {
-    "title": "Fitness Tracker App",
-    "description": "Mobile app for tracking workouts, nutrition, and fitness goals.",
-    "projectLink": "https://github.com",
-    "codeLink": "https://github.com",
-    "imgUrl": "bolt",
-    "tags": ["Mobile App", "Flutter"]
-  },
-  {
-    "title": "Design Portfolio",
-    "description": "Creative portfolio showcase with animations and modern UI design.",
-    "projectLink": "https://github.com",
-    "codeLink": "https://github.com",
-    "imgUrl": "figma",
-    "tags": ["UI/UX", "React JS"]
-  },
-  {
-    "title": "Task Management Tool",
-    "description": "Collaborative task management with real-time updates and team features.",
-    "projectLink": "https://github.com",
-    "codeLink": "https://github.com",
+    "title": "Devflow",
+    "description": "Stack Overflow-style Q&A community platform built with Next.js and MongoDB for developers to share knowledge and solve problems.",
+    "projectLink": "https://github.com/nomanmajeed",
+    "codeLink": "https://github.com/nomanmajeed",
     "imgUrl": "spotify",
-    "tags": ["Web App", "React JS"]
+    "tags": ["Next.js", "Full Stack"]
+  },
+  {
+    "title": "Finlytics",
+    "description": "Personal finance analytics app for tracking spending, visualizing trends, and managing budgets with interactive dashboards.",
+    "projectLink": "https://github.com/nomanmajeed",
+    "codeLink": "https://github.com/nomanmajeed",
+    "imgUrl": "amazon",
+    "tags": ["MERN", "Web App"]
+  },
+  {
+    "title": "Lead CRM",
+    "description": "Customer relationship management system with lead tracking, pipeline views, and contact management built on Django.",
+    "projectLink": "https://github.com/nomanmajeed",
+    "codeLink": "https://github.com/nomanmajeed",
+    "imgUrl": "bolt",
+    "tags": ["Django", "Web App"]
+  },
+  {
+    "title": "WooStore",
+    "description": "Full-featured online shopping platform with product catalog, cart, checkout flow, and order management.",
+    "projectLink": "https://github.com/nomanmajeed",
+    "codeLink": "https://github.com/nomanmajeed",
+    "imgUrl": "asus",
+    "tags": ["Django", "E-Commerce"]
+  },
+  {
+    "title": "Doomflix",
+    "description": "Video streaming platform replica with browse UI, authentication, and Firebase-backed content delivery.",
+    "projectLink": "https://github.com/nomanmajeed",
+    "codeLink": "https://github.com/nomanmajeed",
+    "imgUrl": "nb",
+    "tags": ["React", "Web App"]
   }
 ]

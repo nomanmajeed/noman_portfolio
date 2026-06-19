@@ -4,7 +4,6 @@ import skillsData from './skills.json';
 import experiencesData from './experiences.json';
 import testimonialsData from './testimonials.json';
 import profileData from './profile.json';
-import techLogosData from './tech-logos.json';
 
 export {
   aboutsData,
@@ -13,5 +12,4 @@ export {
   experiencesData,
   testimonialsData,
   profileData,
-  techLogosData,
 };

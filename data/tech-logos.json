@@ -1,5 +1,23 @@
 [
   {
+    "id": "python",
+    "description": "Python",
+    "image": "https://svgl.app/library/python.svg",
+    "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
+  },
+  {
+    "id": "fastapi",
+    "description": "FastAPI",
+    "image": "https://svgl.app/library/fastapi.svg",
+    "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
+  },
+  {
+    "id": "django",
+    "description": "Django",
+    "image": "https://svgl.app/library/django.svg",
+    "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
+  },
+  {
     "id": "react",
     "description": "React",
     "image": "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/react-wordmark.svg",
@@ -12,27 +30,21 @@
     "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
   },
   {
-    "id": "typescript",
-    "description": "TypeScript",
-    "image": "https://svgl.app/library/typescript.svg",
+    "id": "postgresql",
+    "description": "PostgreSQL",
+    "image": "https://svgl.app/library/postgresql.svg",
     "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
   },
   {
-    "id": "tailwind",
-    "description": "Tailwind CSS",
-    "image": "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/tailwind-wordmark.svg",
-    "className": "h-4 w-auto opacity-70 dark:brightness-0 dark:invert"
-  },
-  {
-    "id": "figma",
-    "description": "Figma",
-    "image": "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/figma-wordmark.svg",
+    "id": "docker",
+    "description": "Docker",
+    "image": "https://svgl.app/library/docker.svg",
     "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
   },
   {
-    "id": "nodejs",
-    "description": "Node.js",
-    "image": "https://svgl.app/library/nodejs.svg",
+    "id": "aws",
+    "description": "AWS",
+    "image": "https://svgl.app/library/aws.svg",
     "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
   },
   {
@@ -42,9 +54,9 @@
     "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
   },
   {
-    "id": "graphql",
-    "description": "GraphQL",
-    "image": "https://svgl.app/library/graphql.svg",
+    "id": "supabase",
+    "description": "Supabase",
+    "image": "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/supabase-wordmark.svg",
     "className": "h-7 w-auto opacity-70 dark:brightness-0 dark:invert"
   }
 ]

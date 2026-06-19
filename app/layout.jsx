@@ -14,8 +14,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: 'Noman Majeed | Frontend Developer',
-  description: 'Frontend Developer specializing in React, Next.js, and modern web applications.',
+  title: 'Noman Majeed | Senior Software Engineer',
+  description:
+    'Senior Software Engineer specializing in Python, FastAPI, Django, AI/LLM integration, and full-stack web development.',
 };
 
 export default function RootLayout({ children }) {

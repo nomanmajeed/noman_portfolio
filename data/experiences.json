@@ -1,16 +1,26 @@
 [
   {
+    "year": "2025",
+    "works": [
+      {
+        "name": "Senior Software Engineer",
+        "company": "Tally.no (Silfer Consulting AS) · Remote",
+        "desc": "Built full-stack finance CRM from scratch with multi-tenant RBAC, workflow engine, Stripe billing, KYC/KYB, and GitHub Actions CI/CD — MVP live in 5 months."
+      },
+      {
+        "name": "Senior Software Engineer (Contract)",
+        "company": "DashAnalytix · Remote",
+        "desc": "Delivered Working Capital module, AI forecasting with OpenAI/DeepSeek, Xero/QuickBooks OAuth integrations, and zero-downtime AWS EC2 deployments."
+      }
+    ]
+  },
+  {
     "year": "2024",
     "works": [
       {
-        "name": "Senior Developer",
-        "company": "Tech Company",
-        "desc": "Led development of multiple web applications using React and Node.js."
-      },
-      {
-        "name": "Full Stack Developer",
-        "company": "Startup Inc",
-        "desc": "Built scalable APIs and implemented real-time features for SaaS product."
+        "name": "Senior Software Engineer (Contract)",
+        "company": "Pigeonly · Remote",
+        "desc": "Maintained 3 production microservices on GKE; migrated Flask to FastAPI with async refactoring — 50% response time reduction and 95% Pytest coverage."
       }
     ]
   },
@@ -18,19 +28,34 @@
     "year": "2023",
     "works": [
       {
-        "name": "Frontend Developer",
-        "company": "Digital Agency",
-        "desc": "Developed responsive websites and React applications for various clients."
+        "name": "Senior Software Engineer",
+        "company": "Usermaven · Hybrid",
+        "desc": "Optimized FastAPI services from ~620ms to <150ms latency; built ClickHouse QueryBuilder, Maven AI assistant on Vellum, and 100+ Pydantic-validated REST endpoints."
       }
     ]
   },
   {
-    "year": "2022",
+    "year": "2021",
     "works": [
       {
-        "name": "Junior Developer",
-        "company": "Software Firm",
-        "desc": "Contributed to web projects and learned industry best practices."
+        "name": "Senior Software Engineer",
+        "company": "Datics.ai · Remote",
+        "desc": "Peerlogic: integrated 6 VoIP providers, built 3-tier AI pipeline on GCP, and Django Channels WebSockets — 90% server load reduction. Secure Tax Office: architected multi-parish tax roll ingestion and disbursement engine."
+      },
+      {
+        "name": "Software Engineer",
+        "company": "TenX.ai · Lahore",
+        "desc": "Developed Tasdeeq financial analytics modules — reporting, budget management, credit analytics, and Vertica DB pipeline integrations."
+      }
+    ]
+  },
+  {
+    "year": "2020",
+    "works": [
+      {
+        "name": "Software Engineer",
+        "company": "International Medical Corps · Islamabad",
+        "desc": "Built Country Analytics, Treasury Management, Warehouse Portal, and CBFRM apps with Django/DRF backends, React frontends, Celery, and Django Channels."
       }
     ]
   }

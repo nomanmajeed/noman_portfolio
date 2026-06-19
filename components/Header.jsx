@@ -16,9 +16,9 @@ const EtherealBeamsHero = dynamic(
 export function Header() {
   return (
     <EtherealBeamsHero
-      badge="Available for freelance work"
+      badge="Open to new opportunities"
       title={`Hi, I'm ${profileData.name.split(' ')[0]}`}
-      titleHighlight="Frontend Developer & Designer"
+      titleHighlight={profileData.titleHighlight}
       subtitle={profileData.tagline}
       bio={profileData.bio}
       primaryCta={{ label: 'View My Work', href: profileData.connectUrl }}
@@ -28,11 +28,7 @@ export function Header() {
         'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'
       }
       avatarAlt={profileData.name}
-      stats={[
-        { value: '3+', label: 'Years Experience' },
-        { value: '10+', label: 'Projects' },
-        { value: '5+', label: 'Happy Clients' },
-      ]}
+      stats={profileData.stats}
     />
   );
 }

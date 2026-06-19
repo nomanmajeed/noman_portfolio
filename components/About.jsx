@@ -3,12 +3,11 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
+  Cloud,
   Code2,
   GraduationCap,
   MapPin,
-  Palette,
   Server,
-  Smartphone,
   Sparkles,
 } from 'lucide-react';
 import { images } from '@/constants/images';
@@ -19,17 +18,11 @@ import { SectionHeader } from './SectionHeader';
 const PROFILE_FALLBACK =
   'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80';
 
-const stats = [
-  { value: '3+', label: 'Years Experience' },
-  { value: '10+', label: 'Projects Completed' },
-  { value: '5+', label: 'Happy Clients' },
-];
-
 const serviceIcons = {
-  'Web Development': Code2,
-  'UI/UX Design': Palette,
-  'Mobile Development': Smartphone,
-  'Backend & API': Server,
+  'Backend Engineering': Server,
+  'AI & LLM Integration': Sparkles,
+  'Full-Stack Development': Code2,
+  'Cloud & DevOps': Cloud,
 };
 
 const containerVariants = {
@@ -119,8 +112,8 @@ export function About() {
         >
           <SectionHeader
             label="About Me"
-            title="Building products people love to use"
-            subtitle="A frontend developer focused on clean code, thoughtful design, and shipping polished experiences."
+            title="Building reliable systems at scale"
+            subtitle="Senior Software Engineer specializing in Python backends, AI integration, and full-stack product delivery."
             centered
           />
         </motion.div>
@@ -157,15 +150,12 @@ export function About() {
           <div className="flex flex-col gap-4 lg:col-span-7">
             <BentoCard>
               <p className="mb-4 text-base leading-relaxed text-zinc-300">{profileData.bio}</p>
-              <p className="text-base leading-relaxed text-zinc-400">
-                I turn ideas into fast, accessible interfaces — from landing pages to full-scale
-                web apps — with React, Next.js, and a sharp eye for detail.
-              </p>
+              <p className="text-base leading-relaxed text-zinc-400">{profileData.bioExtended}</p>
 
               <div className="mt-6 flex flex-wrap gap-2.5">
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-zinc-300">
                   <MapPin className="h-3.5 w-3.5 text-indigo-300" />
-                  Pakistan
+                  {profileData.location}
                 </span>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-zinc-300">
                   <GraduationCap className="h-3.5 w-3.5 text-indigo-300" />
@@ -184,7 +174,7 @@ export function About() {
             </BentoCard>
 
             <div className="grid grid-cols-3 gap-4">
-              {stats.map((stat) => (
+              {profileData.stats.map((stat) => (
                 <StatCard key={stat.label} stat={stat} />
               ))}
             </div>

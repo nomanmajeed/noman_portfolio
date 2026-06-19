@@ -1,11 +1,30 @@
 {
   "name": "Noman Majeed",
-  "tagline": "frontend web developer based in pakistan.",
+  "title": "Senior Software Engineer",
+  "titleHighlight": "Senior Software Engineer · AI/LLM",
+  "tagline": "Python · FastAPI · Django · AI/LLM · 6+ Years",
   "greeting": "Hi! I'm Noman Majeed 👋",
-  "bio": "I am a frontend developer with experience in building modern web applications. I specialize in React, Next.js, and creating scalable, user-friendly interfaces.",
-  "languages": ["HTML, CSS, JavaScript", "React Js, Next Js"],
-  "education": "B.Tech in Computer Science",
-  "projectsCount": "Built more than 5 projects",
-  "resumeUrl": "#",
-  "connectUrl": "#contact"
+  "bio": "Certified Senior Software Engineer with 6+ years of experience building reliable, high-performance backend systems for companies in AI, fintech, healthcare, SaaS, and e-commerce.",
+  "bioExtended": "I've delivered solutions used by 2M+ users — cutting query times by 40%, improving response speeds by 30%, and reducing deployment time by 85%. Experienced with AWS, GCP, microservices, Celery, Redis, and PostgreSQL. Currently deepening expertise in Generative AI, LLMs, LangChain, and agentic AI.",
+  "location": "Islamabad, Pakistan",
+  "email": "nomanmajeed986@gmail.com",
+  "phone": "+92 334 953 8387",
+  "linkedin": "https://linkedin.com/in/nomanmajeed986",
+  "github": "https://github.com/nomanmajeed",
+  "languages": ["Python · JavaScript · TypeScript", "FastAPI · Django · Next.js · React"],
+  "education": "BS Software Engineering — COMSATS University (GPA 3.48)",
+  "projectsCount": "5 personal projects",
+  "resumeUrl": "/Noman_Majeed_CV.pdf",
+  "connectUrl": "#work",
+  "stats": [
+    { "value": "6+", "label": "Years Experience" },
+    { "value": "2M+", "label": "Users Impacted" },
+    { "value": "85%", "label": "Faster Deployments" }
+  ],
+  "certifications": [
+    "Ultimate Next.js Course — JSMastery (Dec 2024)",
+    "Deep Learning for AI — Dice Analytics (Apr 2019)",
+    "Python and Data Science — Dice Analytics (Aug 2018)",
+    "Merit Scholarship — 2nd Position, CS Dept, COMSATS (2016–2020)"
+  ]
 }

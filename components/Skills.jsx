@@ -2,31 +2,8 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { images } from '@/constants/images';
-import { skillsData, experiencesData } from '@/data';
-import { getImgSrc } from '@/lib/imageUtils';
+import { experiencesData, profileData } from '@/data';
 import { SectionHeader } from './SectionHeader';
-
-function SkillPill({ skill, index }) {
-  return (
-    <motion.div
-      className="flex cursor-default items-center gap-2.5 rounded-full border border-white/10 bg-white/5 py-1.5 pl-1.5 pr-4 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-indigo-400/50 hover:shadow-[0_8px_25px_rgba(99,102,241,0.15)]"
-      initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.04, type: 'spring', stiffness: 300 }}
-    >
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10">
-        <img
-          src={skill.icon ? getImgSrc(images[skill.icon]) : ''}
-          alt={skill.name}
-          className="h-[18px] w-[18px] object-contain"
-        />
-      </div>
-      <span className="text-sm font-medium text-zinc-200">{skill.name}</span>
-    </motion.div>
-  );
-}
 
 function TimelineItem({ experience, index }) {
   return (
@@ -75,7 +52,7 @@ export function Skills() {
     >
       <div className="pointer-events-none absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-indigo-500/10 blur-3xl" />
 
-      <div className="relative z-[2] mx-auto max-w-6xl">
+      <div className="relative z-[2] mx-auto max-w-3xl">
         <div className="mb-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -85,45 +62,52 @@ export function Skills() {
             <SectionHeader
               label="Experience"
               title="My Journey & Skills"
-              subtitle="A collection of technologies I work with and the path that brought me here."
+              subtitle="6+ years across AI, fintech, healthcare, and SaaS — from Django backends to Next.js full-stack products."
+              centered
             />
           </motion.div>
         </div>
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <motion.h3
-              className="mb-6 inline-block border-b-2 border-indigo-500 pb-3 font-[family-name:var(--font-playfair)] text-xl font-semibold text-white"
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.2 }}
-            >
-              Tech Stack
-            </motion.h3>
-            <div className="flex flex-wrap gap-2.5">
-              {skillsData.map((skill, i) => (
-                <SkillPill key={skill.name} skill={skill} index={i} />
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <motion.h3
-              className="mb-6 inline-block border-b-2 border-indigo-500 pb-3 font-[family-name:var(--font-playfair)] text-xl font-semibold text-white"
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.3 }}
-            >
-              Experience
-            </motion.h3>
-            <div className="relative">
-              <div className="absolute bottom-0 left-[15px] top-0 w-0.5 rounded-full bg-gradient-to-b from-indigo-500 to-white/10" />
-              {experiences.map((exp, i) => (
-                <TimelineItem key={exp.year} experience={exp} index={i} />
-              ))}
-            </div>
+        <div>
+          <motion.h3
+            className="mb-6 inline-block border-b-2 border-indigo-500 pb-3 font-[family-name:var(--font-playfair)] text-xl font-semibold text-white"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.2 }}
+          >
+            Work History
+          </motion.h3>
+          <div className="relative">
+            <div className="absolute bottom-0 left-[15px] top-0 w-0.5 rounded-full bg-gradient-to-b from-indigo-500 to-white/10" />
+            {experiences.map((exp, i) => (
+              <TimelineItem key={exp.year} experience={exp} index={i} />
+            ))}
           </div>
         </div>
+
+        {profileData.certifications?.length > 0 && (
+          <motion.div
+            className="mt-14 rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm md:p-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <h3 className="mb-5 font-[family-name:var(--font-playfair)] text-xl font-semibold text-white">
+              Certifications & Training
+            </h3>
+            <ul className="grid gap-3 md:grid-cols-2">
+              {profileData.certifications.map((cert) => (
+                <li
+                  key={cert}
+                  className="flex items-start gap-2 text-sm leading-relaxed text-zinc-400"
+                >
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                  {cert}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
       </div>
     </section>
   );

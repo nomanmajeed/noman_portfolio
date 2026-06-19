@@ -103,7 +103,7 @@ function TiltCard({ work, index }) {
   );
 }
 
-const allTags = ['All', 'Web App', 'Mobile App', 'UI/UX', 'React JS'];
+const allTags = ['All', 'Web App', 'Full Stack', 'Django', 'Next.js', 'React', 'MERN', 'E-Commerce'];
 
 export function Work() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -130,8 +130,8 @@ export function Work() {
           >
             <SectionHeader
               label="Portfolio"
-              title="Selected Projects"
-              subtitle="A showcase of projects that reflect my skills and creative problem-solving."
+              title="Personal Projects"
+              subtitle="Side projects and experiments spanning full-stack web, Django backends, and React frontends."
             />
           </motion.div>
         </div>

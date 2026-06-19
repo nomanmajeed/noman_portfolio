@@ -4,11 +4,12 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { HiOutlineMail, HiOutlineLocationMarker } from 'react-icons/hi';
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
+import { profileData } from '@/data';
 import { SectionHeader } from './SectionHeader';
 
 const socials = [
-  { icon: AiFillGithub, href: 'https://github.com/nomanmajeed', label: 'GitHub' },
-  { icon: AiFillLinkedin, href: 'https://linkedin.com/in/nomanmajeed', label: 'LinkedIn' },
+  { icon: AiFillGithub, href: profileData.github, label: 'GitHub' },
+  { icon: AiFillLinkedin, href: profileData.linkedin, label: 'LinkedIn' },
 ];
 
 export function Footer() {
@@ -38,15 +39,15 @@ export function Footer() {
 
             <div className="mt-8 flex flex-col gap-3">
               <a
-                href="mailto:hello@nomanmajeed.com"
+                href={`mailto:${profileData.email}`}
                 className="flex items-center gap-3 text-sm text-zinc-400 transition-colors hover:text-white"
               >
                 <HiOutlineMail className="shrink-0 text-lg text-indigo-300" />
-                hello@nomanmajeed.com
+                {profileData.email}
               </a>
               <div className="flex items-center gap-3 text-sm text-zinc-400">
                 <HiOutlineLocationMarker className="shrink-0 text-lg text-indigo-300" />
-                Pakistan
+                {profileData.location}
               </div>
             </div>
 
@@ -130,7 +131,7 @@ export function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-2 text-center sm:flex-row sm:text-left">
           <p className="text-sm text-zinc-500">
-            &copy; {new Date().getFullYear()} Noman Majeed. All rights reserved.
+            &copy; {new Date().getFullYear()} {profileData.name}. All rights reserved.
           </p>
           <p className="text-sm text-zinc-500">Built with Next.js &amp; Framer Motion</p>
         </div>

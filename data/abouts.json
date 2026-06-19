@@ -1,22 +1,22 @@
 [
   {
-    "title": "Web Development",
-    "description": "I develop modern web applications using React, Node.js, and modern tooling for scalable and performant user experiences.",
+    "title": "Backend Engineering",
+    "description": "High-performance APIs with Python, FastAPI, and Django — microservices, async processing with Celery & Redis, and PostgreSQL at scale.",
+    "imgUrl": "about04"
+  },
+  {
+    "title": "AI & LLM Integration",
+    "description": "Generative AI systems with LangChain, LangGraph, OpenAI, and agentic workflows — from conversational assistants to forecasting pipelines.",
     "imgUrl": "about01"
   },
   {
-    "title": "UI/UX Design",
-    "description": "I create intuitive and aesthetically pleasing interfaces that prioritize user experience and accessibility.",
+    "title": "Full-Stack Development",
+    "description": "End-to-end product delivery with Next.js, React, Supabase, and Stripe — from finance CRMs to analytics dashboards.",
     "imgUrl": "about02"
   },
   {
-    "title": "Mobile Development",
-    "description": "I build cross-platform mobile applications with Flutter and React Native for iOS and Android.",
+    "title": "Cloud & DevOps",
+    "description": "Production deployments on AWS and GCP with Docker, GitHub Actions, GitLab CI, and zero-downtime release pipelines.",
     "imgUrl": "about03"
-  },
-  {
-    "title": "Backend & API",
-    "description": "I design and implement robust REST and GraphQL APIs with Node.js, Python, and serverless solutions.",
-    "imgUrl": "about04"
   }
 ]
