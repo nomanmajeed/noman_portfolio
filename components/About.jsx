@@ -1,111 +1,138 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { HiCode, HiAcademicCap, HiBriefcase } from 'react-icons/hi';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { images } from '@/constants/images';
 import { profileData } from '@/data';
 import { getImgSrc } from '@/lib/imageUtils';
-import './About.scss';
+import { SectionHeader } from './SectionHeader';
 
-// Figma order: VS Code, Firebase, NPM, Figma, Git - using closest available assets
-const tools = [
-  { key: 'node', label: 'Node/NPM' },
-  { key: 'git', label: 'Git' },
-  { key: 'figma', label: 'Figma' },
-  { key: 'react', label: 'React' },
-  { key: 'javascript', label: 'JavaScript' },
+const stats = [
+  { value: '3+', label: 'Years Experience' },
+  { value: '10+', label: 'Projects Completed' },
+  { value: '5+', label: 'Happy Clients' },
 ];
 
-function AboutContent() {
+const tools = [
+  { key: 'react', label: 'React' },
+  { key: 'javascript', label: 'JavaScript' },
+  { key: 'typescript', label: 'TypeScript' },
+  { key: 'node', label: 'Node.js' },
+  { key: 'figma', label: 'Figma' },
+  { key: 'git', label: 'Git' },
+];
+
+function AnimatedStat({ stat, index }) {
   return (
-    <section className="about-section">
-      <div className="about__header">
-        <p className="about__subheading">Introduction</p>
-        <h2 className="about__title">About me</h2>
-      </div>
-      <div className="about__content">
-        <motion.img
-          src={getImgSrc(images.profile)}
-          alt={profileData.name}
-          className="about__profile-img"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-        />
-        <div className="about__content-right">
-          <motion.p
-            className="about__description"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            I am an experienced Frontend Developer with over a decade of professional expertise in
-            the field. Throughout my career, I have had the privilege of collaborating with
-            prestigious organizations, contributing to their success and growth.
-          </motion.p>
-          <div className="about__cards">
-            <motion.div
-              className="about__card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <HiCode className="about__card-icon" />
-              <h3 className="about__card-title">Languages</h3>
-              {profileData.languages.map((line, i) => (
-                <p key={i} className="about__card-text">
-                  {line}
-                </p>
-              ))}
-            </motion.div>
-            <motion.div
-              className="about__card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <HiAcademicCap className="about__card-icon" />
-              <h3 className="about__card-title">Education</h3>
-              <p className="about__card-text">{profileData.education}</p>
-            </motion.div>
-            <motion.div
-              className="about__card"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <HiBriefcase className="about__card-icon" />
-              <h3 className="about__card-title">Projects</h3>
-              <p className="about__card-text">{profileData.projectsCount}</p>
-            </motion.div>
-          </div>
-          <h3 className="about__tools-title">Tools i use</h3>
-          <div className="about__tools">
-            {tools.map((tool) => (
-              <motion.div
-                key={tool.key}
-                className="about__tool-icon"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-              >
-                <img src={getImgSrc(images[tool.key])} alt={tool.label} />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+    <motion.div
+      className="text-center"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
+    >
+      <span className="mb-1.5 block bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text font-[family-name:var(--font-playfair)] text-3xl font-bold text-transparent">
+        {stat.value}
+      </span>
+      <span className="text-xs font-medium leading-snug text-zinc-400">{stat.label}</span>
+    </motion.div>
   );
 }
 
 export function About() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+
   return (
-    <div id="about" className="app__container app__whitebg">
-      <div className="app__wrapper app__flex" style={{ padding: 0 }}>
-        <AboutContent />
+    <section
+      id="about"
+      ref={sectionRef}
+      className="relative overflow-hidden px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
+    >
+      <div className="relative z-[2] mx-auto max-w-6xl">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1fr] lg:gap-16">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+          >
+            <div className="relative">
+              <img
+                src={getImgSrc(images.profile)}
+                alt={profileData.name}
+                className="relative z-[2] h-[350px] w-full rounded-3xl object-cover md:h-[420px]"
+              />
+              <div className="absolute -inset-2 -z-[1] rounded-[28px] border-2 border-indigo-500/15" />
+              <div className="absolute -bottom-3 -right-3 -z-[1] h-20 w-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 opacity-10" />
+            </div>
+          </motion.div>
+
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <SectionHeader
+                label="About Me"
+                title="Crafting digital experiences with passion & precision"
+              />
+            </motion.div>
+
+            <motion.p
+              className="mb-4 text-base leading-relaxed text-zinc-500"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              I&apos;m a frontend developer based in Pakistan with a passion for building
+              beautiful, performant web applications. I specialize in React and Next.js,
+              turning complex problems into simple, elegant interfaces.
+            </motion.p>
+
+            <motion.p
+              className="mb-8 text-base leading-relaxed text-zinc-500"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              When I&apos;m not coding, you&apos;ll find me exploring new technologies,
+              contributing to open source, or designing user interfaces that people love to use.
+            </motion.p>
+
+            <div className="mb-10 grid grid-cols-3 gap-6 border-y border-zinc-200 py-6">
+              {stats.map((stat, i) => (
+                <AnimatedStat key={stat.label} stat={stat} index={i} />
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <span className="mb-4 block text-xs font-semibold uppercase tracking-widest text-zinc-400">
+                Tech Stack
+              </span>
+              <div className="flex flex-wrap gap-2.5">
+                {tools.map((tool, i) => (
+                  <motion.div
+                    key={tool.key}
+                    className="flex cursor-default items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-2 transition-all hover:-translate-y-1 hover:border-indigo-500 hover:bg-indigo-500/10 hover:shadow-sm"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.7 + i * 0.05, type: 'spring', stiffness: 300 }}
+                  >
+                    <img src={getImgSrc(images[tool.key])} alt={tool.label} className="h-5 w-5 object-contain" />
+                    <span className="text-sm font-medium text-zinc-500">{tool.label}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
