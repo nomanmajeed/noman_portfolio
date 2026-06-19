@@ -39,10 +39,10 @@ export function Testimonials() {
     <section
       id="testimonials"
       ref={sectionRef}
-      className="relative overflow-hidden bg-zinc-100 px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
+      className="relative overflow-hidden bg-black px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] bg-[size:30px_30px] opacity-40 [mask-image:radial-gradient(ellipse_50%_60%_at_50%_50%,black,transparent)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:30px_30px] opacity-60 [mask-image:radial-gradient(ellipse_50%_60%_at_50%_50%,black,transparent)]"
         aria-hidden
       />
 
@@ -58,7 +58,7 @@ export function Testimonials() {
         </div>
 
         <div className="relative mx-auto max-w-2xl text-center">
-          <div className="relative z-[1] mb-[-2rem] font-[family-name:var(--font-playfair)] text-8xl leading-none text-indigo-500 opacity-15">
+          <div className="relative z-[1] mb-[-2rem] font-[family-name:var(--font-playfair)] text-8xl leading-none text-indigo-500/20">
             &ldquo;
           </div>
 
@@ -74,7 +74,7 @@ export function Testimonials() {
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
                 className="absolute w-full"
               >
-                <p className="mx-auto mb-8 max-w-xl text-lg italic leading-relaxed text-zinc-500 md:text-xl">
+                <p className="mx-auto mb-8 max-w-xl text-lg italic leading-relaxed text-zinc-400 md:text-xl">
                   {item.feedback}
                 </p>
                 <div className="flex items-center justify-center gap-4">
@@ -82,12 +82,12 @@ export function Testimonials() {
                     <img
                       src={getImgSrc(images[item.imgurl])}
                       alt={item.name}
-                      className="h-12 w-12 rounded-full border-2 border-indigo-500/20 object-cover"
+                      className="h-12 w-12 rounded-full border-2 border-indigo-500/30 object-cover"
                     />
                   )}
                   <div className="text-left">
-                    <h4 className="text-base font-semibold text-zinc-950">{item.name}</h4>
-                    <p className="text-sm text-zinc-400">{item.company}</p>
+                    <h4 className="text-base font-semibold text-white">{item.name}</h4>
+                    <p className="text-sm text-zinc-500">{item.company}</p>
                   </div>
                 </div>
               </motion.div>
@@ -97,7 +97,7 @@ export function Testimonials() {
           <div className="mt-8 flex items-center justify-center gap-4">
             <button
               type="button"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white text-xl text-zinc-950 transition-all hover:scale-105 hover:border-zinc-950 hover:bg-zinc-950 hover:text-white"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xl text-white transition-all hover:scale-105 hover:border-white hover:bg-white hover:text-black"
               onClick={() => navigate(-1)}
               aria-label="Previous"
             >
@@ -109,7 +109,7 @@ export function Testimonials() {
                   key={i}
                   type="button"
                   className={`h-2 rounded-full transition-all ${
-                    i === current ? 'w-6 bg-indigo-500' : 'w-2 bg-zinc-300 hover:bg-zinc-400'
+                    i === current ? 'w-6 bg-indigo-400' : 'w-2 bg-white/20 hover:bg-white/40'
                   }`}
                   onClick={() => {
                     setDirection(i > current ? 1 : -1);
@@ -121,7 +121,7 @@ export function Testimonials() {
             </div>
             <button
               type="button"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white text-xl text-zinc-950 transition-all hover:scale-105 hover:border-zinc-950 hover:bg-zinc-950 hover:text-white"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xl text-white transition-all hover:scale-105 hover:border-white hover:bg-white hover:text-black"
               onClick={() => navigate(1)}
               aria-label="Next"
             >

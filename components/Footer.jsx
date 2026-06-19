@@ -19,7 +19,7 @@ export function Footer() {
     <footer
       id="contact"
       ref={ref}
-      className="relative overflow-hidden bg-zinc-950 px-6 py-16 text-white md:px-10 md:py-24 lg:px-24 lg:py-32"
+      className="relative overflow-hidden border-t border-white/10 bg-zinc-950 px-6 py-16 text-white md:px-10 md:py-24 lg:px-24 lg:py-32"
     >
       <div className="pointer-events-none absolute -right-24 -top-48 h-[500px] w-[500px] rounded-full bg-indigo-500/15 blur-3xl" />
 
@@ -34,7 +34,6 @@ export function Footer() {
               label="Get In Touch"
               title="Let's work together"
               subtitle="Have a project in mind or want to collaborate? I'd love to hear from you."
-              dark
             />
 
             <div className="mt-8 flex flex-col gap-3">

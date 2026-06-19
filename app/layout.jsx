@@ -20,8 +20,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-background font-[family-name:var(--font-inter)] text-foreground antialiased">
+    <html lang="en" className={`dark ${inter.variable} ${playfair.variable} scroll-smooth`}>
+      <body className="min-h-screen bg-black font-[family-name:var(--font-inter)] text-foreground antialiased">
         {children}
       </body>
     </html>

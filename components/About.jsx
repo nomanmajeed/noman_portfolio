@@ -31,10 +31,10 @@ function AnimatedStat({ stat, index }) {
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
     >
-      <span className="mb-1.5 block bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text font-[family-name:var(--font-playfair)] text-3xl font-bold text-transparent">
+      <span className="mb-1.5 block bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text font-[family-name:var(--font-playfair)] text-3xl font-bold text-transparent">
         {stat.value}
       </span>
-      <span className="text-xs font-medium leading-snug text-zinc-400">{stat.label}</span>
+      <span className="text-xs font-medium leading-snug text-zinc-500">{stat.label}</span>
     </motion.div>
   );
 }
@@ -47,8 +47,10 @@ export function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative overflow-hidden px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
+      className="relative overflow-hidden bg-zinc-950 px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
     >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
+
       <div className="relative z-[2] mx-auto max-w-6xl">
         <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1fr] lg:gap-16">
           <motion.div
@@ -62,8 +64,8 @@ export function About() {
                 alt={profileData.name}
                 className="relative z-[2] h-[350px] w-full rounded-3xl object-cover md:h-[420px]"
               />
-              <div className="absolute -inset-2 -z-[1] rounded-[28px] border-2 border-indigo-500/15" />
-              <div className="absolute -bottom-3 -right-3 -z-[1] h-20 w-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 opacity-10" />
+              <div className="absolute -inset-2 -z-[1] rounded-[28px] border-2 border-indigo-500/20" />
+              <div className="absolute -bottom-3 -right-3 -z-[1] h-20 w-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 opacity-20" />
             </div>
           </motion.div>
 
@@ -80,7 +82,7 @@ export function About() {
             </motion.div>
 
             <motion.p
-              className="mb-4 text-base leading-relaxed text-zinc-500"
+              className="mb-4 text-base leading-relaxed text-zinc-400"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -91,7 +93,7 @@ export function About() {
             </motion.p>
 
             <motion.p
-              className="mb-8 text-base leading-relaxed text-zinc-500"
+              className="mb-8 text-base leading-relaxed text-zinc-400"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -100,7 +102,7 @@ export function About() {
               contributing to open source, or designing user interfaces that people love to use.
             </motion.p>
 
-            <div className="mb-10 grid grid-cols-3 gap-6 border-y border-zinc-200 py-6">
+            <div className="mb-10 grid grid-cols-3 gap-6 border-y border-white/10 py-6">
               {stats.map((stat, i) => (
                 <AnimatedStat key={stat.label} stat={stat} index={i} />
               ))}
@@ -111,21 +113,21 @@ export function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <span className="mb-4 block text-xs font-semibold uppercase tracking-widest text-zinc-400">
+              <span className="mb-4 block text-xs font-semibold uppercase tracking-widest text-zinc-500">
                 Tech Stack
               </span>
               <div className="flex flex-wrap gap-2.5">
                 {tools.map((tool, i) => (
                   <motion.div
                     key={tool.key}
-                    className="flex cursor-default items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-2 transition-all hover:-translate-y-1 hover:border-indigo-500 hover:bg-indigo-500/10 hover:shadow-sm"
+                    className="flex cursor-default items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm transition-all hover:-translate-y-1 hover:border-indigo-400/50 hover:bg-indigo-500/10"
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.7 + i * 0.05, type: 'spring', stiffness: 300 }}
                   >
                     <img src={getImgSrc(images[tool.key])} alt={tool.label} className="h-5 w-5 object-contain" />
-                    <span className="text-sm font-medium text-zinc-500">{tool.label}</span>
+                    <span className="text-sm font-medium text-zinc-300">{tool.label}</span>
                   </motion.div>
                 ))}
               </div>
