@@ -5,22 +5,24 @@ import { images } from '@/constants/images';
 import { profileData } from '@/data';
 import { getImgSrc } from '@/lib/imageUtils';
 
-const EtherealBeamsHero = dynamic(
-  () => import('@/components/ui/ethereal-beams-hero').then((mod) => mod.EtherealBeamsHero),
+const PortfolioHero = dynamic(
+  () => import('@/components/ui/portfolio-hero').then((mod) => mod.PortfolioHero),
   {
     ssr: false,
-    loading: () => <div id="home" className="min-h-screen bg-black" aria-label="Loading hero" />,
+    loading: () => (
+      <div id="home" className="min-h-[100dvh] bg-black" aria-label="Loading hero" />
+    ),
   }
 );
 
 export function Header() {
   return (
-    <EtherealBeamsHero
+    <PortfolioHero
       badge="Open to new opportunities"
-      title={`Hi, I'm ${profileData.name.split(' ')[0]}`}
-      titleHighlight={profileData.titleHighlight}
-      subtitle={profileData.tagline}
-      bio={profileData.bio}
+      title="Build"
+      titleEmphasis="AI-powered systems"
+      titleSuffix="from idea to production"
+      subtitle="Senior Software Engineer. Python, FastAPI, Django, AI/LLM. 6+ years shipping backend systems for 2M+ users."
       primaryCta={{ label: 'View My Work', href: profileData.connectUrl }}
       secondaryCta={{ label: 'Download CV', href: profileData.resumeUrl }}
       avatarUrl={
@@ -28,7 +30,6 @@ export function Header() {
         'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80'
       }
       avatarAlt={profileData.name}
-      stats={profileData.stats}
     />
   );
 }

@@ -59,7 +59,7 @@ export function Navbar() {
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className={`relative block rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
+                  className={`relative block cursor-pointer rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
                     isActive ? 'text-white' : 'text-white/60 hover:text-white'
                   }`}
                 >
@@ -80,7 +80,7 @@ export function Navbar() {
 
       <a
         href="#contact"
-        className="z-10 hidden items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black transition-all hover:-translate-y-0.5 hover:bg-indigo-100 lg:inline-flex"
+        className="z-10 hidden cursor-pointer items-center gap-1.5 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black transition-all hover:-translate-y-0.5 hover:bg-indigo-100 lg:inline-flex"
       >
         Let&apos;s Talk
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -95,7 +95,7 @@ export function Navbar() {
       </a>
 
       <button
-        className="z-10 flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-xl text-white backdrop-blur-sm lg:hidden"
+        className="z-10 flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl bg-white/10 text-xl text-white backdrop-blur-sm lg:hidden"
         onClick={() => setToggle(true)}
         aria-label="Open menu"
       >
@@ -124,7 +124,7 @@ export function Navbar() {
                   N<span className="text-indigo-300">.</span>
                 </span>
                 <button
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-xl text-white transition-colors hover:bg-white/20"
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl bg-white/10 text-xl text-white transition-colors hover:bg-white/20"
                   onClick={() => setToggle(false)}
                   aria-label="Close menu"
                 >
@@ -142,7 +142,7 @@ export function Navbar() {
                   >
                     <a
                       href={link.href}
-                      className="flex items-center gap-4 py-5 text-lg font-medium text-white transition-colors hover:text-indigo-300"
+                      className="flex cursor-pointer items-center gap-4 py-5 text-lg font-medium text-white transition-colors hover:text-indigo-300"
                       onClick={() => setToggle(false)}
                     >
                       <span className="text-xs font-semibold tabular-nums text-zinc-500">
@@ -156,7 +156,7 @@ export function Navbar() {
               <div className="pt-6">
                 <a
                   href="#contact"
-                  className="flex w-full items-center justify-center rounded-full bg-white px-5 py-4 text-base font-medium text-black transition-colors hover:bg-indigo-100"
+                  className="flex w-full cursor-pointer items-center justify-center rounded-full bg-white px-5 py-4 text-base font-medium text-black transition-colors hover:bg-indigo-100"
                   onClick={() => setToggle(false)}
                 >
                   Let&apos;s Talk
