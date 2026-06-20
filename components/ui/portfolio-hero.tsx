@@ -45,6 +45,43 @@ const itemVariants: Variants = {
 const SPRING = { stiffness: 110, damping: 24, mass: 0.5 };
 const CURSOR_SPRING = { stiffness: 55, damping: 22, mass: 0.7 };
 
+function HighlightBadge({ label }: { label: string }) {
+  return (
+    <div className="relative mb-6 inline-flex rounded-full p-px">
+      <div aria-hidden className="absolute inset-0 overflow-hidden rounded-full">
+        <div className="absolute -inset-[100%] motion-safe:animate-[spin_3.5s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,#6366f1_20%,#a855f7_45%,#818cf8_70%,transparent_100%)]" />
+      </div>
+      <div
+        aria-hidden
+        className="absolute -inset-2 rounded-full bg-indigo-500/20 blur-lg motion-safe:animate-[badge-glow_3s_ease-in-out_infinite]"
+      />
+      <span className="relative inline-flex items-center gap-2 rounded-full border border-indigo-400/25 bg-black/80 px-3.5 py-1.5 shadow-[0_0_20px_rgba(99,102,241,0.3)] backdrop-blur-md">
+        <span className="relative flex h-2 w-2 shrink-0">
+          <span className="absolute inline-flex h-full w-full motion-safe:animate-ping rounded-full bg-indigo-400 opacity-70" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-300 shadow-[0_0_8px_rgba(129,140,248,0.9)]" />
+        </span>
+        <span className="text-xs font-medium tracking-wide text-indigo-100">{label}</span>
+      </span>
+    </div>
+  );
+}
+
+function AmbientLoopGlow() {
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+      <div className="absolute left-[55%] top-[45%] h-[min(520px,90vw)] w-[min(520px,90vw)] -translate-x-1/2 -translate-y-1/2 motion-safe:animate-[orbit-glow_20s_linear_infinite]">
+        <div className="absolute left-1/2 top-0 h-44 w-44 -translate-x-1/2 rounded-full bg-indigo-500/20 blur-3xl" />
+      </div>
+      <div className="absolute left-[40%] top-[50%] h-[min(400px,75vw)] w-[min(400px,75vw)] -translate-x-1/2 -translate-y-1/2 motion-safe:animate-[orbit-glow_28s_linear_infinite_reverse]">
+        <div className="absolute left-1/2 top-0 h-32 w-32 -translate-x-1/2 rounded-full bg-purple-500/15 blur-3xl" />
+      </div>
+      <div className="absolute left-[65%] top-[55%] h-[min(300px,60vw)] w-[min(300px,60vw)] -translate-x-1/2 -translate-y-1/2 motion-safe:animate-[orbit-glow_14s_linear_infinite]">
+        <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 rounded-full bg-indigo-300/10 blur-2xl" />
+      </div>
+    </div>
+  );
+}
+
 function CursorGlow({
   x,
   y,
@@ -141,6 +178,8 @@ export function PortfolioHero({
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_40%,rgba(99,102,241,0.12),transparent)]" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
 
+      {!reduceMotion && <AmbientLoopGlow />}
+
       {!reduceMotion && (
         <CursorGlow x={smoothCursorX} y={smoothCursorY} opacity={smoothGlowOpacity} />
       )}
@@ -153,12 +192,9 @@ export function PortfolioHero({
           style={reduceMotion ? undefined : { x: textX, y: textY }}
         >
           {badge && (
-            <motion.p
-              variants={itemVariants}
-              className="mb-5 text-xs font-medium uppercase tracking-widest text-zinc-500"
-            >
-              {badge}
-            </motion.p>
+            <motion.div variants={itemVariants}>
+              <HighlightBadge label={badge} />
+            </motion.div>
           )}
 
           <motion.h1
