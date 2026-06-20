@@ -112,8 +112,8 @@ function TerminalConsole({ isInView, reducedMotion }) {
       cmd: 'whoami',
       output: (
         <div>
-          <p className="text-sm font-semibold text-white md:text-base">{profileData.name}</p>
-          <p className="mt-1 text-sm leading-relaxed text-zinc-400">{profileData.titleHighlight}</p>
+          <p className="text-sm font-semibold text-foreground md:text-base">{profileData.name}</p>
+          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{profileData.titleHighlight}</p>
         </div>
       ),
     },
@@ -121,8 +121,8 @@ function TerminalConsole({ isInView, reducedMotion }) {
       cmd: 'cat bio.md',
       output: (
         <div>
-          <p className="text-sm leading-relaxed text-zinc-300">{profileData.bio}</p>
-          <p className="mt-3 text-sm leading-relaxed text-zinc-400">{profileData.bioExtended}</p>
+          <p className="text-sm leading-relaxed text-foreground/90">{profileData.bio}</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{profileData.bioExtended}</p>
         </div>
       ),
     },
@@ -131,31 +131,31 @@ function TerminalConsole({ isInView, reducedMotion }) {
       output: (
         <pre className="whitespace-pre-wrap break-words text-[12.5px] leading-relaxed">
           <code>
-            <span className="text-zinc-500">{'{'}</span>
+            <span className="text-muted-foreground/70">{'{'}</span>
             {'\n  '}
             <span className="text-brand">"location"</span>
-            <span className="text-zinc-500">: </span>
-            <span className="text-emerald-300">"{profileData.location}"</span>
-            <span className="text-zinc-500">,</span>
+            <span className="text-muted-foreground/70">: </span>
+            <span className="text-emerald-700 dark:text-emerald-300">"{profileData.location}"</span>
+            <span className="text-muted-foreground/70">,</span>
             {'\n  '}
             <span className="text-brand">"education"</span>
-            <span className="text-zinc-500">: </span>
-            <span className="text-emerald-300">"{profileData.education}"</span>
-            <span className="text-zinc-500">,</span>
+            <span className="text-muted-foreground/70">: </span>
+            <span className="text-emerald-700 dark:text-emerald-300">"{profileData.education}"</span>
+            <span className="text-muted-foreground/70">,</span>
             {'\n  '}
             <span className="text-brand">"languages"</span>
-            <span className="text-zinc-500">: [</span>
+            <span className="text-muted-foreground/70">: [</span>
             {profileData.languages.map((lang, i) => (
               <span key={lang}>
                 {'\n    '}
-                <span className="text-emerald-300">"{lang}"</span>
-                {i < profileData.languages.length - 1 && <span className="text-zinc-500">,</span>}
+                <span className="text-emerald-700 dark:text-emerald-300">"{lang}"</span>
+                {i < profileData.languages.length - 1 && <span className="text-muted-foreground/70">,</span>}
               </span>
             ))}
             {'\n  '}
-            <span className="text-zinc-500">]</span>
+            <span className="text-muted-foreground/70">]</span>
             {'\n'}
-            <span className="text-zinc-500">{'}'}</span>
+            <span className="text-muted-foreground/70">{'}'}</span>
           </code>
         </pre>
       ),
@@ -169,14 +169,14 @@ function TerminalConsole({ isInView, reducedMotion }) {
   });
 
   return (
-    <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-zinc-950/80 backdrop-blur-sm">
+    <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-foreground/[0.03] backdrop-blur-sm">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand/[0.08] via-transparent to-brand/[0.03]" />
 
-      <div className="relative z-[1] flex items-center gap-2 border-b border-white/10 bg-white/[0.02] px-5 py-3.5">
+      <div className="relative z-[1] flex items-center gap-2 border-b border-border bg-foreground/[0.02] px-5 py-3.5">
         <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" aria-hidden />
         <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" aria-hidden />
         <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/70" aria-hidden />
-        <span className="ml-3 font-[family-name:var(--font-data)] text-xs text-zinc-500">
+        <span className="ml-3 font-[family-name:var(--font-data)] text-xs text-muted-foreground/70">
           noman@portfolio — zsh
         </span>
       </div>
@@ -187,7 +187,7 @@ function TerminalConsole({ isInView, reducedMotion }) {
 
           return (
             <div key={c.cmd} className="mb-4">
-              <div className="flex items-center gap-2 text-[13px] text-zinc-300">
+              <div className="flex items-center gap-2 text-[13px] text-foreground/90">
                 <span className="text-brand">❯</span>
                 <span>{typed[i]}</span>
                 {!revealed[i] && typed[i].length < c.cmd.length && (
@@ -202,7 +202,7 @@ function TerminalConsole({ isInView, reducedMotion }) {
                   initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="ml-4 mt-2 border-l border-white/10 pl-4"
+                  className="ml-4 mt-2 border-l border-border pl-4"
                 >
                   {c.output}
                 </motion.div>
@@ -212,10 +212,10 @@ function TerminalConsole({ isInView, reducedMotion }) {
         })}
 
         {finished && (
-          <div className="flex items-center gap-2 text-[13px] text-zinc-300">
+          <div className="flex items-center gap-2 text-[13px] text-foreground/90">
             <span className="text-brand">❯</span>
             <span
-              className="inline-block h-3.5 w-[7px] translate-y-[1px] bg-zinc-400 [animation:caret-blink_1s_infinite]"
+              className="inline-block h-3.5 w-[7px] translate-y-[1px] bg-muted-foreground [animation:caret-blink_1s_infinite]"
               aria-hidden
             />
           </div>

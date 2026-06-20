@@ -8,7 +8,7 @@ import {
   CarouselItem,
 } from '@/components/ui/carousel';
 import { SkillBadge } from '@/components/ui/skill-badge';
-import { skillsData } from '@/data';
+import { techStack } from '@/lib/tech-stack';
 
 export function TechCloud() {
   return (
@@ -42,9 +42,9 @@ export function TechCloud() {
             className="w-full"
           >
             <CarouselContent className="ml-0">
-              {skillsData.map((skill) => (
+              {techStack.map((skill) => (
                 <CarouselItem
-                  key={skill.name}
+                  key={skill.id}
                   className="basis-auto pl-0 pr-3 sm:pr-4"
                 >
                   <SkillBadge skill={skill} />

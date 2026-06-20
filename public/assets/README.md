@@ -17,7 +17,7 @@ All portfolio images live under `public/assets/` and are referenced by URL path 
 ## Adding files
 
 - **Company logo:** `companies/<id>.png` → set `"logo": "/assets/companies/<id>.png"` in `data/experiences.json`
-- **Tech icon:** `tech/<name>.png` → add key in `constants/images.js` and `"icon": "<key>"` in `data/skills.json`
+- **Tech icon:** add an entry in `lib/tech-stack.tsx` — icons appear in About orbit, TechCloud ring, and skill badges automatically.
 - **Project image:** `projects/<name>.png` → use `imgUrl` key in `data/works.json`
 
 Keys are mapped in `constants/images.js`.
