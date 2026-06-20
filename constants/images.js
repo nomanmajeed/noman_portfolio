@@ -26,7 +26,8 @@ const images = {
   about04: '/assets/about/about04.png',
 
   // Profile & hero → public/assets/profile/
-  profile: '/assets/profile/profile.png',
+  profile: '/assets/profile/profile_1.png',
+  profileHero: '/assets/profile/profile_2.png',
   devProfile: '/assets/profile/devProfile.svg',
   circle: '/assets/profile/circle.svg',
 
