@@ -7,7 +7,7 @@
     "startDate": "May 2025",
     "endDate": "Present",
     "companyUrl": "https://tally.no",
-    "logo": "/logos/tally.png",
+    "logo": "/assets/companies/tally.png",
     "summary": "Full-stack finance CRM (Next.js, Supabase) built from scratch with CTO and COO. MVP live in 5 months with real users.",
     "highlights": [
       "Built CRM core: companies, deals pipeline (lead → won → onboarding), contacts with many-to-many linking, and saved views with custom filters and columns.",
@@ -29,7 +29,7 @@
     "startDate": "Feb 2025",
     "endDate": "Mar 2026",
     "companyUrl": "https://dashanalytix.com",
-    "logo": "/logos/dashanalytix.jpeg",
+    "logo": "/assets/companies/dashanalytix.jpeg",
     "summary": "Built Working Capital module, AI forecasting layer, and multi-tenant financial modeling with Xero/QuickBooks integrations.",
     "highlights": [
       "Built Working Capital module (AP/AR tracking, liquidity projections) and Scenario Builder for financial modeling.",
@@ -48,7 +48,7 @@
     "startDate": "Nov 2024",
     "endDate": "Feb 2025",
     "companyUrl": "https://pigeonly.com",
-    "logo": "/logos/pigeonly.png",
+    "logo": "/assets/companies/pigeonly.png",
     "summary": "Maintained production microservices on GKE and migrated Flask services to FastAPI with async refactoring.",
     "highlights": [
       "Maintained 3 production microservices (Corrections, Attorney Mail, Physical Mail) on GKE.",
@@ -66,7 +66,7 @@
     "startDate": "Jun 2023",
     "endDate": "May 2025",
     "companyUrl": "https://usermaven.com",
-    "logo": "/logos/usermaven.jpeg",
+    "logo": "/assets/companies/usermaven.jpeg",
     "summary": "Collaborated with CTO on analytics architecture; optimized FastAPI services and built ClickHouse QueryBuilder reducing query complexity by 40%.",
     "highlights": [
       "Collaborated with CTO to guide Usermaven's technical architecture and strategic direction.",
@@ -88,7 +88,7 @@
     "startDate": "Nov 2021",
     "endDate": "Jul 2023",
     "companyUrl": "https://datics.ai",
-    "logo": "/logos/datics.jpeg",
+    "logo": "/assets/companies/datics.jpeg",
     "summary": "Led backend work on Peerlogic (dental AI) and Secure Tax Office / Tax Collector platforms across GCP and PostgreSQL.",
     "highlights": [
       "Peerlogic: integrated VoIP providers (GoTo, Bandwidth, Netsapiens, RingCentral, NexHealth) with GCP Pub/Sub pipeline.",
@@ -107,7 +107,7 @@
     "startDate": "Jul 2021",
     "endDate": "Nov 2021",
     "companyUrl": "https://tenx.ai",
-    "logo": "/logos/tenx.png",
+    "logo": "/assets/companies/tenx.png",
     "summary": "Worked on Tasdeeq financial analytics — reporting, budgets, credit analytics, and Vertica DB pipelines.",
     "highlights": [
       "Developed and optimized system modules for financial reporting and budgets.",
@@ -125,7 +125,7 @@
     "startDate": "Jun 2020",
     "endDate": "Jul 2021",
     "companyUrl": "https://internationalmedicalcorps.org",
-    "logo": "/logos/imc.jpeg",
+    "logo": "/assets/companies/imc.jpeg",
     "summary": "Built Country Analytics, Treasury Management, Warehouse Portal, and CBFRM with Django/DRF backends and React frontends.",
     "highlights": [
       "Developed Country Analytics app and Treasury Management System.",
@@ -144,7 +144,7 @@
     "startDate": "Feb 2019",
     "endDate": "Jan 2020",
     "companyUrl": "https://diceanalytics.com",
-    "logo": "/logos/dice-analytics.png",
+    "logo": "/assets/companies/dice-analytics.png",
     "summary": "Developed AI-based Chatbot Curebot for disease classification and prediction; authored SRS and design documentation.",
     "highlights": [
       "Developed AI-based Chatbot named Curebot for disease classification and prediction.",

@@ -1,35 +1,15 @@
 [
-  {
-    "name": "Python",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-    "bgColor": "#3776AB"
-  },
-  {
-    "name": "FastAPI",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
-    "bgColor": "#009688"
-  },
+  { "name": "Python", "icon": "python", "bgColor": "#3776AB" },
+  { "name": "FastAPI", "icon": "api", "bgColor": "#009688" },
   {
     "name": "Django",
     "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
     "bgColor": "#092E20",
     "iconBg": "dark"
   },
-  {
-    "name": "JavaScript",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-    "bgColor": "#F7DF1E"
-  },
-  {
-    "name": "TypeScript",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-    "bgColor": "#3178C6"
-  },
-  {
-    "name": "React",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-    "bgColor": "#20232A"
-  },
+  { "name": "JavaScript", "icon": "javascript", "bgColor": "#F7DF1E" },
+  { "name": "TypeScript", "icon": "typescript", "bgColor": "#3178C6" },
+  { "name": "React", "icon": "react", "bgColor": "#20232A" },
   {
     "name": "Next.js",
     "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
@@ -56,21 +36,12 @@
     "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg",
     "bgColor": "#232F3E"
   },
-  {
-    "name": "GraphQL",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
-    "bgColor": "#E10098",
-    "iconBg": "light"
-  },
+  { "name": "GraphQL", "icon": "graphql", "bgColor": "#E10098", "iconBg": "light" },
   {
     "name": "Supabase",
     "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
     "bgColor": "#3ECF8E",
     "iconBg": "light"
   },
-  {
-    "name": "Git",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-    "bgColor": "#F05032"
-  }
+  { "name": "Git", "icon": "git", "bgColor": "#F05032" }
 ]

@@ -1,76 +1,65 @@
-import api from '@/src/assets/api.png';
-import cpp from '@/src/assets/cpp.png';
-import css from '@/src/assets/css.png';
-import email from '@/src/assets/email.png';
-import figma from '@/src/assets/figma.png';
-import flutter from '@/src/assets/flutter.png';
-import git from '@/src/assets/git.png';
-import graphql from '@/src/assets/graphql.png';
-import html from '@/src/assets/html.png';
-import javascript from '@/src/assets/javascript.png';
-import mobile from '@/src/assets/mobile.png';
-import mu5 from '@/src/assets/mu5.png';
-import node from '@/src/assets/node.png';
-import python from '@/src/assets/python.png';
-import react from '@/src/assets/react.png';
-import redux from '@/src/assets/redux.png';
-import sass from '@/src/assets/sass.png';
-import typescript from '@/src/assets/typescript.png';
-import vue from '@/src/assets/vue.png';
-
-import about01 from '@/src/assets/about01.png';
-import about02 from '@/src/assets/about02.png';
-import about03 from '@/src/assets/about03.png';
-import about04 from '@/src/assets/about04.png';
-
-import circle from '@/src/assets/circle.svg';
-import devProfile from '@/src/assets/devProfile.svg';
-import logo from '@/src/assets/logo.png';
-import profile from '@/src/assets/profile.png';
-
-import adidas from '@/src/assets/adidas.png';
-import amazon from '@/src/assets/amazon.png';
-import asus from '@/src/assets/asus.png';
-import bolt from '@/src/assets/bolt.png';
-import nb from '@/src/assets/nb.png';
-import skype from '@/src/assets/skype.png';
-import spotify from '@/src/assets/spotify.png';
-
+/** Static image paths under public/assets/ */
 const images = {
-  email,
-  mobile,
-  api,
-  cpp,
-  css,
-  figma,
-  flutter,
-  git,
-  graphql,
-  html,
-  javascript,
-  mu5,
-  node,
-  python,
-  react,
-  redux,
-  sass,
-  typescript,
-  vue,
-  about01,
-  about02,
-  about03,
-  about04,
-  devProfile,
-  profile,
-  circle,
-  logo,
-  adidas,
-  amazon,
-  asus,
-  bolt,
-  nb,
-  skype,
-  spotify,
+  // Tech stack icons → public/assets/tech/
+  api: '/assets/tech/api.png',
+  cpp: '/assets/tech/cpp.png',
+  css: '/assets/tech/css.png',
+  figma: '/assets/tech/figma.png',
+  flutter: '/assets/tech/flutter.png',
+  git: '/assets/tech/git.png',
+  graphql: '/assets/tech/graphql.png',
+  html: '/assets/tech/html.png',
+  javascript: '/assets/tech/javascript.png',
+  mu5: '/assets/tech/mu5.png',
+  node: '/assets/tech/node.png',
+  python: '/assets/tech/python.png',
+  react: '/assets/tech/react.png',
+  redux: '/assets/tech/redux.png',
+  sass: '/assets/tech/sass.png',
+  typescript: '/assets/tech/typescript.png',
+  vue: '/assets/tech/vue.png',
+
+  // About section → public/assets/about/
+  about01: '/assets/about/about01.png',
+  about02: '/assets/about/about02.png',
+  about03: '/assets/about/about03.png',
+  about04: '/assets/about/about04.png',
+
+  // Profile & hero → public/assets/profile/
+  profile: '/assets/profile/profile.png',
+  devProfile: '/assets/profile/devProfile.svg',
+  circle: '/assets/profile/circle.svg',
+
+  // Brand & UI → public/assets/brand/
+  logo: '/assets/brand/logo.png',
+  logoSvg: '/assets/brand/logo.svg',
+  email: '/assets/brand/email.png',
+  mobile: '/assets/brand/mobile.png',
+  bgIMG: '/assets/brand/bgIMG.png',
+  bgWhite: '/assets/brand/bgWhite.png',
+
+  // Project thumbnails → public/assets/projects/
+  adidas: '/assets/projects/adidas.png',
+  amazon: '/assets/projects/amazon.png',
+  asus: '/assets/projects/asus.png',
+  bolt: '/assets/projects/bolt.png',
+  nb: '/assets/projects/nb.png',
+  skype: '/assets/projects/skype.png',
+  spotify: '/assets/projects/spotify.png',
+
+  // Company logos → public/assets/companies/
+  tally: '/assets/companies/tally.png',
+  dashanalytix: '/assets/companies/dashanalytix.jpeg',
+  pigeonly: '/assets/companies/pigeonly.png',
+  usermaven: '/assets/companies/usermaven.jpeg',
+  datics: '/assets/companies/datics.jpeg',
+  tenx: '/assets/companies/tenx.png',
+  imc: '/assets/companies/imc.jpeg',
+  diceAnalytics: '/assets/companies/dice-analytics.png',
+
+  // Certification org logos → public/assets/certifications/
+  logoJsm: '/assets/certifications/logo-jsm.webp',
+  inductin: '/assets/certifications/inductin.jpeg',
 };
 
 export { images };
