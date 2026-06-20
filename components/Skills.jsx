@@ -2,26 +2,37 @@
 
 import { useMemo, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ExternalLink } from 'lucide-react';
 import { experiencesData, profileData } from '@/data';
 import { SectionHeader } from './SectionHeader';
 
-function flattenExperiences(experiences) {
-  return [...experiences]
-    .sort((a, b) => Number(b.year) - Number(a.year))
-    .flatMap((exp) =>
-      exp.works.map((work, i) => ({
-        id: `${exp.year}-${work.company.replace(/\s+/g, '-').toLowerCase()}-${i}`,
-        year: exp.year,
-        name: work.name,
-        company: work.company,
-        desc: work.desc,
-      }))
+function CompanyLogo({ company, logo }) {
+  const [failed, setFailed] = useState(false);
+  const initial = company.charAt(0).toUpperCase();
+
+  if (logo && !failed) {
+    return (
+      <img
+        src={logo}
+        alt={`${company} logo`}
+        className="h-10 w-10 shrink-0 rounded-xl border border-white/10 bg-white object-contain p-1.5"
+        onError={() => setFailed(true)}
+      />
     );
+  }
+
+  return (
+    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-gradient-to-br from-indigo-500/30 to-purple-500/20 text-sm font-bold text-white">
+      {initial}
+    </div>
+  );
 }
 
 function ExperienceCard({ job, index, isExpanded, onToggle }) {
-  const needsExpand = job.desc.length > 100;
+  const hasDetails =
+    (job.highlights?.length ?? 0) > 0 ||
+    (job.techStack?.length ?? 0) > 0 ||
+    job.summary.length > 120;
 
   return (
     <motion.div
@@ -31,25 +42,46 @@ function ExperienceCard({ job, index, isExpanded, onToggle }) {
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
     >
-      <div className="absolute left-2 top-5 flex h-4 w-4 items-center justify-center">
+      <div className="absolute left-2 top-6 flex h-4 w-4 items-center justify-center">
         <div className="h-3 w-3 rounded-full border-[3px] border-zinc-950 bg-indigo-500 shadow-[0_0_0_2px_#6366f1]" />
       </div>
 
       <div
-        className={`flex min-h-[8.5rem] flex-col rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all md:min-h-[9rem] md:p-5 ${
+        className={`flex min-h-[9.5rem] flex-col rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all md:p-5 ${
           isExpanded
             ? 'border-indigo-400/40 bg-white/[0.07] shadow-[0_8px_30px_rgba(99,102,241,0.08)]'
             : 'hover:border-indigo-400/30 hover:bg-white/[0.06]'
         }`}
       >
-        <div className="mb-2 flex flex-wrap items-center gap-2">
-          <span className="inline-block rounded-full bg-indigo-500/20 px-2.5 py-0.5 text-xs font-semibold text-indigo-300">
-            {job.year}
-          </span>
+        <div className="mb-3 flex gap-3">
+          <CompanyLogo company={job.company} logo={job.logo} />
+          <div className="min-w-0 flex-1">
+            <div className="mb-1 flex flex-wrap items-start justify-between gap-2">
+              <h4 className="text-sm font-semibold leading-snug text-white md:text-base">
+                {job.title}
+              </h4>
+              <span className="shrink-0 text-[11px] font-medium tabular-nums text-zinc-500 md:text-xs">
+                {job.startDate} – {job.endDate}
+              </span>
+            </div>
+            {job.companyUrl ? (
+              <a
+                href={job.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs font-medium text-indigo-300 transition-colors hover:text-indigo-200 md:text-sm"
+              >
+                {job.company}
+                <ExternalLink className="h-3 w-3 shrink-0 opacity-70" />
+              </a>
+            ) : (
+              <p className="text-xs font-medium text-indigo-300 md:text-sm">{job.company}</p>
+            )}
+            {job.location && (
+              <p className="mt-0.5 text-[11px] text-zinc-500 md:text-xs">{job.location}</p>
+            )}
+          </div>
         </div>
-
-        <h4 className="text-sm font-semibold leading-snug text-white md:text-base">{job.name}</h4>
-        <p className="mb-2 text-xs font-medium text-indigo-300 md:text-sm">{job.company}</p>
 
         <div className="flex flex-1 flex-col">
           <p
@@ -57,10 +89,37 @@ function ExperienceCard({ job, index, isExpanded, onToggle }) {
               isExpanded ? '' : 'line-clamp-2'
             }`}
           >
-            {job.desc}
+            {job.summary}
           </p>
 
-          {needsExpand && (
+          {isExpanded && job.highlights?.length > 0 && (
+            <ul className="mt-3 space-y-1.5 border-t border-white/10 pt-3">
+              {job.highlights.map((item) => (
+                <li
+                  key={item.slice(0, 40)}
+                  className="flex gap-2 text-xs leading-relaxed text-zinc-400 md:text-sm"
+                >
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-indigo-400" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {isExpanded && job.techStack?.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-1.5 border-t border-white/10 pt-3">
+              {job.techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 md:text-xs"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {hasDetails && (
             <button
               type="button"
               onClick={() => onToggle(job.id)}
@@ -103,7 +162,7 @@ export function Skills() {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [expandedId, setExpandedId] = useState(null);
 
-  const jobs = useMemo(() => flattenExperiences(experiencesData), []);
+  const jobs = useMemo(() => experiencesData, []);
 
   const midpoint = Math.ceil(jobs.length / 2);
   const leftColumn = jobs.slice(0, midpoint);

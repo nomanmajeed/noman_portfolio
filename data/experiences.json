@@ -1,62 +1,156 @@
 [
   {
-    "year": "2025",
-    "works": [
-      {
-        "name": "Senior Software Engineer",
-        "company": "Tally.no (Silfer Consulting AS) · Remote",
-        "desc": "Built full-stack finance CRM from scratch with multi-tenant RBAC, workflow engine, Stripe billing, KYC/KYB, and GitHub Actions CI/CD — MVP live in 5 months."
-      },
-      {
-        "name": "Senior Software Engineer (Contract)",
-        "company": "DashAnalytix · Remote",
-        "desc": "Delivered Working Capital module, AI forecasting with OpenAI/DeepSeek, Xero/QuickBooks OAuth integrations, and zero-downtime AWS EC2 deployments."
-      }
-    ]
+    "id": "tally",
+    "title": "Senior Software Engineer",
+    "company": "Tally.no",
+    "location": "Remote",
+    "startDate": "May 2025",
+    "endDate": "Present",
+    "companyUrl": "https://tally.no",
+    "logo": "/logos/tally.png",
+    "summary": "Full-stack finance CRM (Next.js, Supabase) built from scratch with CTO and COO. MVP live in 5 months with real users.",
+    "highlights": [
+      "Built CRM core: companies, deals pipeline (lead → won → onboarding), contacts with many-to-many linking, and saved views with custom filters and columns.",
+      "Developed offer composer with services, bundles, and pricing; contract templates with Criipto digital signing and full lifecycle tracking.",
+      "Designed work management: Kanban/list/calendar task views, recurring tasks, checklists, comments, attachments, and task-to-deal/company linking.",
+      "Built configurable workflow engine with templates, triggers, cadence scheduling, per-client overrides, and auto-assignment rules.",
+      "Delivered time tracking with Norwegian overtime/flex rules and admin approval flow.",
+      "Integrated Stripe subscriptions, affiliate referral system, Google/Microsoft SSO, MFA, KYC/KYB via Signicat, and BRREG lookup.",
+      "Built multi-tenant org system with RBAC, member management, dashboard analytics, and notifications via Resend and Infobip.",
+      "Developed CI/CD pipeline with GitHub Actions and Slack deployment/PR notifications."
+    ],
+    "techStack": ["Next.js", "Supabase", "Stripe", "Criipto", "Signicat", "Resend", "Infobip", "GitHub Actions", "Slack"]
   },
   {
-    "year": "2024",
-    "works": [
-      {
-        "name": "Senior Software Engineer (Contract)",
-        "company": "Pigeonly · Remote",
-        "desc": "Maintained 3 production microservices on GKE; migrated Flask to FastAPI with async refactoring — 50% response time reduction and 95% Pytest coverage."
-      }
-    ]
+    "id": "dashanalytix",
+    "title": "Senior Software Engineer (Contract)",
+    "company": "DashAnalytix",
+    "location": "Remote",
+    "startDate": "Feb 2025",
+    "endDate": "Mar 2026",
+    "companyUrl": "https://dashanalytix.com",
+    "logo": "/logos/dashanalytix.jpeg",
+    "summary": "Built Working Capital module, AI forecasting layer, and multi-tenant financial modeling with Xero/QuickBooks integrations.",
+    "highlights": [
+      "Built Working Capital module (AP/AR tracking, liquidity projections) and Scenario Builder for financial modeling.",
+      "Designed multi-tenant architecture with strict per-org data isolation and domain-based dashboard sharing.",
+      "Integrated Xero/QuickBooks OAuth 2.0 — 70% less manual data entry.",
+      "Built AI forecasting commentary layer (OpenAI/DeepSeek via Agno) with usage-based billing.",
+      "Implemented BuddyWorks CI/CD with multi-stage Docker builds, Pytest gates, and zero-downtime AWS EC2 deployments."
+    ],
+    "techStack": ["Python", "Django", "DRF", "PostgreSQL", "Redis", "Celery", "Docker", "AWS", "OpenAI", "Pusher"]
   },
   {
-    "year": "2023",
-    "works": [
-      {
-        "name": "Senior Software Engineer",
-        "company": "Usermaven · Hybrid",
-        "desc": "Optimized FastAPI services from ~620ms to <150ms latency; built ClickHouse QueryBuilder, Maven AI assistant on Vellum, and 100+ Pydantic-validated REST endpoints."
-      }
-    ]
+    "id": "pigeonly",
+    "title": "Senior Software Engineer (Contract)",
+    "company": "Pigeonly",
+    "location": "Remote",
+    "startDate": "Nov 2024",
+    "endDate": "Feb 2025",
+    "companyUrl": "https://pigeonly.com",
+    "logo": "/logos/pigeonly.png",
+    "summary": "Maintained production microservices on GKE and migrated Flask services to FastAPI with async refactoring.",
+    "highlights": [
+      "Maintained 3 production microservices (Corrections, Attorney Mail, Physical Mail) on GKE.",
+      "Migrated Flask to FastAPI with async refactoring — 50% response time reduction, 60% less boilerplate.",
+      "Extended auth with SSO + JWT-based feature flagging for granular access control.",
+      "Enforced GitLab CI with 95% Pytest coverage gate and zero-downtime rolling deployments on GKE."
+    ],
+    "techStack": ["Python", "FastAPI", "Flask", "PostgreSQL", "Redis", "Celery", "Docker", "GCP", "GitLab CI"]
   },
   {
-    "year": "2021",
-    "works": [
-      {
-        "name": "Senior Software Engineer",
-        "company": "Datics.ai · Remote",
-        "desc": "Peerlogic: integrated 6 VoIP providers, built 3-tier AI pipeline on GCP, and Django Channels WebSockets — 90% server load reduction. Secure Tax Office: architected multi-parish tax roll ingestion and disbursement engine."
-      },
-      {
-        "name": "Software Engineer",
-        "company": "TenX.ai · Lahore",
-        "desc": "Developed Tasdeeq financial analytics modules — reporting, budget management, credit analytics, and Vertica DB pipeline integrations."
-      }
-    ]
+    "id": "usermaven",
+    "title": "Senior Software Engineer",
+    "company": "Usermaven",
+    "location": "Hybrid",
+    "startDate": "Jun 2023",
+    "endDate": "May 2025",
+    "companyUrl": "https://usermaven.com",
+    "logo": "/logos/usermaven.jpeg",
+    "summary": "Collaborated with CTO on analytics architecture; optimized FastAPI services and built ClickHouse QueryBuilder reducing query complexity by 40%.",
+    "highlights": [
+      "Collaborated with CTO to guide Usermaven's technical architecture and strategic direction.",
+      "Integrated ClickHouse for high-volume analytics; built QueryBuilder reducing query complexity by 40%.",
+      "Engineered RESTful APIs with FastAPI; reduced query response times by 30%.",
+      "Established Cypress, Jest, and Pytest testing infrastructure.",
+      "Built WordPress, Shopify, LinkedIn Ads, Google Ads, and Meta Ads integrations.",
+      "Developed Chrome extension for IP-based traffic exclusion and custom Shopify/WooCommerce apps.",
+      "Designed interactive analytics dashboard with scheduled reports via email and Slack.",
+      "Utilized Strategy, Builder, and Factory patterns for async report scheduling with Celery and Redis."
+    ],
+    "techStack": ["FastAPI", "TypeScript", "Python", "React.js", "ClickHouse", "Mantine UI", "Tailwind CSS", "Jest", "Cypress", "Celery", "Redis"]
   },
   {
-    "year": "2020",
-    "works": [
-      {
-        "name": "Software Engineer",
-        "company": "International Medical Corps · Islamabad",
-        "desc": "Built Country Analytics, Treasury Management, Warehouse Portal, and CBFRM apps with Django/DRF backends, React frontends, Celery, and Django Channels."
-      }
-    ]
+    "id": "datics",
+    "title": "Senior Software Engineer",
+    "company": "Datics.ai",
+    "location": "Remote",
+    "startDate": "Nov 2021",
+    "endDate": "Jul 2023",
+    "companyUrl": "https://datics.ai",
+    "logo": "/logos/datics.jpeg",
+    "summary": "Led backend work on Peerlogic (dental AI) and Secure Tax Office / Tax Collector platforms across GCP and PostgreSQL.",
+    "highlights": [
+      "Peerlogic: integrated VoIP providers (GoTo, Bandwidth, Netsapiens, RingCentral, NexHealth) with GCP Pub/Sub pipeline.",
+      "Configured webhooks and cloud functions for real-time call streaming and audio processing.",
+      "Secure Tax Office: led data modeling and transformation; engineered Tax Sale, Deduction, Disbursement, and Reports.",
+      "Tax Collector: architected database, developed RESTful APIs, integrated with Secure Tax Office across 50+ parishes.",
+      "Utilized Pydantic, pandas, numpy, Celery, Redis, and Docker across projects."
+    ],
+    "techStack": ["Python", "Django", "DRF", "PostgreSQL", "GCP", "Pandas", "Pydantic", "Celery", "Redis", "Docker"]
+  },
+  {
+    "id": "tenx",
+    "title": "Software Engineer",
+    "company": "TenX.ai",
+    "location": "Lahore, PK",
+    "startDate": "Jul 2021",
+    "endDate": "Nov 2021",
+    "companyUrl": "https://tenx.ai",
+    "logo": "/logos/tenx.png",
+    "summary": "Worked on Tasdeeq financial analytics — reporting, budgets, credit analytics, and Vertica DB pipelines.",
+    "highlights": [
+      "Developed and optimized system modules for financial reporting and budgets.",
+      "Built forecast analytics features using Python and Django.",
+      "Worked with Vertica DB for large-scale data processing.",
+      "Implemented Angular UI components for analytics dashboards."
+    ],
+    "techStack": ["Python", "Django", "Angular", "MySQL", "Vertica DB", "Bootstrap", "Git"]
+  },
+  {
+    "id": "imc",
+    "title": "Software Engineer",
+    "company": "International Medical Corps",
+    "location": "Islamabad, PK",
+    "startDate": "Jun 2020",
+    "endDate": "Jul 2021",
+    "companyUrl": "https://internationalmedicalcorps.org",
+    "logo": "/logos/imc.jpeg",
+    "summary": "Built Country Analytics, Treasury Management, Warehouse Portal, and CBFRM with Django/DRF backends and React frontends.",
+    "highlights": [
+      "Developed Country Analytics app and Treasury Management System.",
+      "Built intuitive UIs using React.js and Ant Design.",
+      "Created robust backends with Django and DRF.",
+      "Implemented real-time features using Django Channels.",
+      "Handled async background jobs with Celery and Redis."
+    ],
+    "techStack": ["React.js", "Django", "DRF", "MS SQL Server", "Redis", "Celery", "Ant Design", "Bootstrap"]
+  },
+  {
+    "id": "dice-analytics",
+    "title": "Chatbot Consultant (Apprentice)",
+    "company": "Dice Analytics",
+    "location": "Islamabad, PK",
+    "startDate": "Feb 2019",
+    "endDate": "Jan 2020",
+    "companyUrl": "https://diceanalytics.com",
+    "logo": "/logos/dice-analytics.png",
+    "summary": "Developed AI-based Chatbot Curebot for disease classification and prediction; authored SRS and design documentation.",
+    "highlights": [
+      "Developed AI-based Chatbot named Curebot for disease classification and prediction.",
+      "Created Software Requirement and Design Document.",
+      "Applied NLP and machine learning techniques for healthcare use cases."
+    ],
+    "techStack": ["Python", "NLP", "Machine Learning"]
   }
 ]
