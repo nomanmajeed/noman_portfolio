@@ -227,13 +227,13 @@ function TerminalConsole({ isInView, reducedMotion }) {
 
 function ProfileCard({ profileImage }) {
   return (
-    <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-3 backdrop-blur-sm">
+    <div className="group relative flex flex-1 flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-3 backdrop-blur-sm">
       <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500/10 via-transparent to-purple-500/10 opacity-60" />
-      <div className="relative h-44 overflow-hidden rounded-2xl md:h-52">
+      <div className="relative min-h-[180px] flex-1 overflow-hidden rounded-2xl">
         <img
           src={profileImage}
           alt={profileData.name}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
 
@@ -352,7 +352,10 @@ export function About() {
             <TerminalConsole isInView={isInView} reducedMotion={reducedMotion} />
           </motion.div>
 
-          <motion.div variants={itemVariants} className="flex flex-col gap-4 lg:col-span-5">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col gap-4 lg:col-span-5 lg:h-full"
+          >
             <ProfileCard profileImage={profileImage} />
             <MetricsRow />
           </motion.div>
