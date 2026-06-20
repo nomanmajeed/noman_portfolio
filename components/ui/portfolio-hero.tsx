@@ -49,18 +49,18 @@ function HighlightBadge({ label }: { label: string }) {
   return (
     <div className="relative mb-6 inline-flex rounded-full p-px">
       <div aria-hidden className="absolute inset-0 overflow-hidden rounded-full">
-        <div className="absolute -inset-[100%] motion-safe:animate-[spin_3.5s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,#6366f1_20%,#a855f7_45%,#818cf8_70%,transparent_100%)]" />
+        <div className="absolute -inset-[100%] motion-safe:animate-[spin_3.5s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,hsl(var(--brand-foreground)/0.9)_20%,hsl(var(--brand-foreground)/0.5)_45%,hsl(var(--brand-foreground)/0.8)_70%,transparent_100%)]" />
       </div>
       <div
         aria-hidden
-        className="absolute -inset-2 rounded-full bg-indigo-500/20 blur-lg motion-safe:animate-[badge-glow_3s_ease-in-out_infinite]"
+        className="brand-glow absolute -inset-2 rounded-full blur-lg motion-safe:animate-[badge-glow_3s_ease-in-out_infinite]"
       />
-      <span className="relative inline-flex items-center gap-2 rounded-full border border-indigo-400/25 bg-black/80 px-3.5 py-1.5 shadow-[0_0_20px_rgba(99,102,241,0.3)] backdrop-blur-md">
+      <span className="relative inline-flex items-center gap-2 rounded-full border border-brand/25 bg-background/80 px-3.5 py-1.5 shadow-[0_0_20px_hsl(var(--brand-foreground)/0.3)] backdrop-blur-md">
         <span className="relative flex h-2 w-2 shrink-0">
-          <span className="absolute inline-flex h-full w-full motion-safe:animate-ping rounded-full bg-indigo-400 opacity-70" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-300 shadow-[0_0_8px_rgba(129,140,248,0.9)]" />
+          <span className="absolute inline-flex h-full w-full motion-safe:animate-ping rounded-full bg-brand opacity-70" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-brand shadow-[0_0_8px_hsl(var(--brand-foreground)/0.9)]" />
         </span>
-        <span className="text-xs font-medium tracking-wide text-indigo-100">{label}</span>
+        <span className="text-xs font-medium tracking-wide text-foreground">{label}</span>
       </span>
     </div>
   );
@@ -70,13 +70,13 @@ function AmbientLoopGlow() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
       <div className="absolute left-[55%] top-[45%] h-[min(520px,90vw)] w-[min(520px,90vw)] -translate-x-1/2 -translate-y-1/2 motion-safe:animate-[orbit-glow_20s_linear_infinite]">
-        <div className="absolute left-1/2 top-0 h-44 w-44 -translate-x-1/2 rounded-full bg-indigo-500/20 blur-3xl" />
+        <div className="brand-glow absolute left-1/2 top-0 h-44 w-44 -translate-x-1/2 rounded-full blur-3xl" />
       </div>
       <div className="absolute left-[40%] top-[50%] h-[min(400px,75vw)] w-[min(400px,75vw)] -translate-x-1/2 -translate-y-1/2 motion-safe:animate-[orbit-glow_28s_linear_infinite_reverse]">
-        <div className="absolute left-1/2 top-0 h-32 w-32 -translate-x-1/2 rounded-full bg-purple-500/15 blur-3xl" />
+        <div className="brand-glow absolute left-1/2 top-0 h-32 w-32 -translate-x-1/2 rounded-full blur-3xl" />
       </div>
       <div className="absolute left-[65%] top-[55%] h-[min(300px,60vw)] w-[min(300px,60vw)] -translate-x-1/2 -translate-y-1/2 motion-safe:animate-[orbit-glow_14s_linear_infinite]">
-        <div className="absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 rounded-full bg-indigo-300/10 blur-2xl" />
+        <div className="brand-glow absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 rounded-full blur-2xl" />
       </div>
     </div>
   );
@@ -94,14 +94,14 @@ function CursorGlow({
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none absolute z-[1] mix-blend-screen"
+      className="pointer-events-none absolute z-[1] mix-blend-multiply dark:mix-blend-screen"
       style={{ left: x, top: y, x: "-50%", y: "-50%", opacity }}
     >
       <div className="relative h-0 w-0">
-        <div className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/70 blur-[2px]" />
-        <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-300/25 blur-2xl" />
-        <div className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-500/20 blur-3xl" />
-        <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-600/10 blur-[80px]" />
+        <div className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground/70 blur-[2px]" />
+        <div className="brand-glow absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl" />
+        <div className="brand-glow absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl" />
+        <div className="brand-glow absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[80px]" />
       </div>
     </motion.div>
   );
@@ -170,13 +170,13 @@ export function PortfolioHero({
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-[100dvh] overflow-hidden bg-black"
+      className="relative min-h-[100dvh] overflow-hidden bg-background"
       onPointerMove={handlePointerMove}
       onPointerEnter={() => !reduceMotion && glowOpacity.set(1)}
       onPointerLeave={handlePointerLeave}
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_40%,rgba(99,102,241,0.12),transparent)]" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_40%,hsl(var(--brand-foreground)/0.12),transparent)]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
 
       {!reduceMotion && <AmbientLoopGlow />}
 
@@ -199,10 +199,10 @@ export function PortfolioHero({
 
           <motion.h1
             variants={itemVariants}
-            className="text-4xl font-semibold tracking-tighter text-white md:text-5xl lg:text-6xl lg:leading-[1.08]"
+            className="text-4xl font-semibold tracking-tighter text-foreground md:text-5xl lg:text-6xl lg:leading-[1.08]"
           >
             {title}{" "}
-            <span className="italic text-indigo-300">{titleEmphasis}</span>
+            <span className="italic text-brand">{titleEmphasis}</span>
             <br />
             {titleSuffix}
           </motion.h1>
@@ -210,7 +210,7 @@ export function PortfolioHero({
           {subtitle && (
             <motion.p
               variants={itemVariants}
-              className="mt-5 max-w-md text-base leading-relaxed text-zinc-400 md:text-lg"
+              className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg"
             >
               {subtitle}
             </motion.p>
@@ -222,14 +222,14 @@ export function PortfolioHero({
           >
             <a
               href={primaryCta.href}
-              className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-colors hover:bg-indigo-100"
+              className="group inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-all hover:opacity-90"
             >
               {primaryCta.label}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
               href={secondaryCta.href}
-              className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-white/25 hover:bg-white/5"
+              className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-foreground/15 px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-foreground/25 hover:bg-foreground/5"
             >
               <Download className="h-4 w-4" />
               {secondaryCta.label}
@@ -255,15 +255,15 @@ export function PortfolioHero({
                   }
             }
           >
-            <div className="pointer-events-none absolute -right-8 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-indigo-500/10 blur-3xl" />
+            <div className="brand-glow pointer-events-none absolute -right-8 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full blur-3xl" />
 
             <div className="relative aspect-[4/5] w-full">
               <motion.div
                 aria-hidden
-                className="absolute -inset-3 rounded-[2rem] border border-dashed border-white/10 motion-safe:animate-spin [animation-duration:24s]"
+                className="absolute -inset-3 rounded-[2rem] border border-dashed border-foreground/10 motion-safe:animate-spin [animation-duration:24s]"
                 style={reduceMotion ? undefined : { x: ringX, y: ringY }}
               />
-              <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/10 bg-zinc-900 shadow-[0_24px_80px_rgba(0,0,0,0.5)]">
+              <div className="relative h-full w-full overflow-hidden rounded-3xl border border-border bg-muted shadow-[0_24px_80px_rgba(0,0,0,0.5)]">
                 <Image
                   src={avatarUrl}
                   alt={avatarAlt}

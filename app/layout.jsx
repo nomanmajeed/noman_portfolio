@@ -1,4 +1,5 @@
 import { Inter, JetBrains_Mono, Playfair_Display } from 'next/font/google';
+import { ThemeProvider } from 'next-themes';
 import './globals.css';
 
 const inter = Inter({
@@ -29,10 +30,13 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`dark ${inter.variable} ${playfair.variable} ${jetbrainsMono.variable} scroll-smooth`}
+      suppressHydrationWarning
+      className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
-      <body className="min-h-screen bg-black font-[family-name:var(--font-inter)] text-foreground antialiased">
-        {children}
+      <body className="min-h-screen bg-background font-[family-name:var(--font-inter)] text-foreground antialiased">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -25,12 +25,12 @@ export function SkillBadge({ skill, className }: SkillBadgeProps) {
   return (
     <div
       className={cn(
-        "flex shrink-0 cursor-default items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.06] py-1.5 pl-1.5 pr-5 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-indigo-400/40 hover:bg-white/10 hover:shadow-[0_8px_25px_rgba(99,102,241,0.12)]",
+        "flex shrink-0 cursor-default items-center gap-2.5 rounded-full border border-border bg-foreground/[0.06] py-1.5 pl-1.5 pr-5 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:bg-foreground/10 hover:shadow-[0_8px_25px_hsl(var(--brand-foreground)/0.12)]",
         className
       )}
     >
       <div
-        className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full p-1.5 ring-1 ring-white/10"
+        className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full p-1.5 ring-1 ring-foreground/10"
         style={{
           backgroundColor: `color-mix(in srgb, ${skill.bgColor} 40%, transparent)`,
         }}
@@ -52,7 +52,7 @@ export function SkillBadge({ skill, className }: SkillBadgeProps) {
           />
         ) : null}
       </div>
-      <span className="whitespace-nowrap text-sm font-medium text-zinc-100">{skill.name}</span>
+      <span className="whitespace-nowrap text-sm font-medium text-foreground">{skill.name}</span>
     </div>
   );
 }

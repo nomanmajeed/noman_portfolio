@@ -13,16 +13,16 @@ import { skillsData } from '@/data';
 export function TechCloud() {
   return (
     <section
-      className="relative overflow-hidden border-y border-white/5 bg-black py-12 md:py-16"
+      className="relative overflow-hidden border-y border-border bg-background py-12 md:py-16"
       aria-label="Technologies I work with"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.08),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--brand-foreground)/0.08),transparent_60%)]" />
 
       <div className="relative z-[2] container mx-auto flex flex-col items-center px-6 text-center">
-        <p className="mb-2 text-sm font-medium tracking-tight text-zinc-400 md:text-base">
+        <p className="mb-2 text-sm font-medium tracking-tight text-muted-foreground md:text-base">
           Tech I work on
         </p>
-        <h2 className="font-[family-name:var(--font-playfair)] text-xl font-semibold tracking-tight text-white md:text-2xl">
+        <h2 className="font-[family-name:var(--font-playfair)] text-xl font-semibold tracking-tight text-foreground md:text-2xl">
           Tools & frameworks behind my builds
         </h2>
       </div>
@@ -53,8 +53,8 @@ export function TechCloud() {
             </CarouselContent>
           </Carousel>
 
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-black to-transparent md:w-24" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-black to-transparent md:w-24" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent md:w-24" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent md:w-24" />
         </div>
       </div>
     </section>

@@ -10,7 +10,7 @@ const PortfolioHero = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div id="home" className="min-h-[100dvh] bg-black" aria-label="Loading hero" />
+      <div id="home" className="min-h-[100dvh] bg-background" aria-label="Loading hero" />
     ),
   }
 );

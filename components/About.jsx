@@ -133,17 +133,17 @@ function TerminalConsole({ isInView, reducedMotion }) {
           <code>
             <span className="text-zinc-500">{'{'}</span>
             {'\n  '}
-            <span className="text-indigo-300">"location"</span>
+            <span className="text-brand">"location"</span>
             <span className="text-zinc-500">: </span>
             <span className="text-emerald-300">"{profileData.location}"</span>
             <span className="text-zinc-500">,</span>
             {'\n  '}
-            <span className="text-indigo-300">"education"</span>
+            <span className="text-brand">"education"</span>
             <span className="text-zinc-500">: </span>
             <span className="text-emerald-300">"{profileData.education}"</span>
             <span className="text-zinc-500">,</span>
             {'\n  '}
-            <span className="text-indigo-300">"languages"</span>
+            <span className="text-brand">"languages"</span>
             <span className="text-zinc-500">: [</span>
             {profileData.languages.map((lang, i) => (
               <span key={lang}>
@@ -170,7 +170,7 @@ function TerminalConsole({ isInView, reducedMotion }) {
 
   return (
     <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-zinc-950/80 backdrop-blur-sm">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/[0.06] via-transparent to-purple-500/[0.04]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand/[0.08] via-transparent to-brand/[0.03]" />
 
       <div className="relative z-[1] flex items-center gap-2 border-b border-white/10 bg-white/[0.02] px-5 py-3.5">
         <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" aria-hidden />
@@ -188,11 +188,11 @@ function TerminalConsole({ isInView, reducedMotion }) {
           return (
             <div key={c.cmd} className="mb-4">
               <div className="flex items-center gap-2 text-[13px] text-zinc-300">
-                <span className="text-indigo-300">❯</span>
+                <span className="text-brand">❯</span>
                 <span>{typed[i]}</span>
                 {!revealed[i] && typed[i].length < c.cmd.length && (
                   <span
-                    className="inline-block h-3.5 w-[7px] translate-y-[1px] bg-indigo-300/80 [animation:caret-blink_1s_infinite]"
+                    className="inline-block h-3.5 w-[7px] translate-y-[1px] bg-brand/80 [animation:caret-blink_1s_infinite]"
                     aria-hidden
                   />
                 )}
@@ -213,7 +213,7 @@ function TerminalConsole({ isInView, reducedMotion }) {
 
         {finished && (
           <div className="flex items-center gap-2 text-[13px] text-zinc-300">
-            <span className="text-indigo-300">❯</span>
+            <span className="text-brand">❯</span>
             <span
               className="inline-block h-3.5 w-[7px] translate-y-[1px] bg-zinc-400 [animation:caret-blink_1s_infinite]"
               aria-hidden
@@ -227,8 +227,8 @@ function TerminalConsole({ isInView, reducedMotion }) {
 
 function ProfileCard({ profileImage }) {
   return (
-    <div className="group relative flex flex-1 flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-3 backdrop-blur-sm">
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500/10 via-transparent to-purple-500/10 opacity-60" />
+    <div className="group relative flex flex-1 flex-col overflow-hidden rounded-3xl border border-border bg-foreground/[0.03] p-3 backdrop-blur-sm">
+      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-brand/10 via-transparent to-brand/5 opacity-60" />
       <div className="relative min-h-[180px] flex-1 overflow-hidden rounded-2xl">
         <img
           src={profileImage}
@@ -271,12 +271,12 @@ function MetricsRow() {
       {profileData.stats.map((stat) => (
         <div
           key={stat.label}
-          className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-4 text-center backdrop-blur-sm"
+          className="relative overflow-hidden rounded-2xl border border-border bg-foreground/[0.03] px-3 py-4 text-center backdrop-blur-sm"
         >
-          <span className="mb-1 block bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text font-[family-name:var(--font-playfair)] text-2xl font-bold text-transparent md:text-3xl">
+          <span className="mb-1 block bg-gradient-to-r from-brand to-brand/70 bg-clip-text font-[family-name:var(--font-playfair)] text-2xl font-bold text-transparent md:text-3xl">
             {stat.value}
           </span>
-          <span className="flex items-center justify-center gap-1.5 font-[family-name:var(--font-data)] text-[9.5px] uppercase tracking-wider text-zinc-500">
+          <span className="flex items-center justify-center gap-1.5 font-[family-name:var(--font-data)] text-[9.5px] uppercase tracking-wider text-muted-foreground/70">
             <span className="h-1 w-1 rounded-full bg-emerald-400/80" aria-hidden />
             {stat.label}
           </span>
@@ -291,19 +291,19 @@ function CapabilityRow({ service }) {
   const tag = serviceTags[service.title] ?? 'svc/general';
 
   return (
-    <div className="group flex flex-col gap-3 px-5 py-4 transition-colors hover:bg-white/[0.03] sm:flex-row sm:items-center sm:gap-5 md:px-6">
+    <div className="group flex flex-col gap-3 px-5 py-4 transition-colors hover:bg-foreground/[0.03] sm:flex-row sm:items-center sm:gap-5 md:px-6">
       <div className="flex items-center gap-3 sm:w-[15rem] sm:shrink-0">
         <span className="relative flex h-2 w-2 shrink-0">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-40" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
         </span>
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/10 ring-1 ring-indigo-500/20 transition-transform group-hover:scale-105">
-          <Icon className="h-4 w-4 text-indigo-300" strokeWidth={1.75} />
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand/20 to-brand/10 ring-1 ring-brand/20 transition-transform group-hover:scale-105">
+          <Icon className="h-4 w-4 text-brand" strokeWidth={1.75} />
         </div>
-        <h3 className="text-sm font-semibold text-white">{service.title}</h3>
+        <h3 className="text-sm font-semibold text-foreground">{service.title}</h3>
       </div>
-      <p className="flex-1 text-sm leading-relaxed text-zinc-400">{service.description}</p>
-      <span className="shrink-0 font-[family-name:var(--font-data)] text-[11px] text-zinc-500 sm:text-right">
+      <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
+      <span className="shrink-0 font-[family-name:var(--font-data)] text-[11px] text-muted-foreground/70 sm:text-right">
         {tag}
       </span>
     </div>
@@ -321,11 +321,11 @@ export function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative overflow-hidden bg-zinc-950 px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
+      className="relative overflow-hidden bg-background px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
-      <div className="pointer-events-none absolute -left-32 top-1/4 h-[420px] w-[420px] rounded-full bg-indigo-600/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-0 h-[360px] w-[360px] rounded-full bg-purple-600/10 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(color-mix(in_oklab,var(--foreground)_3%,transparent)_1px,transparent_1px)] bg-[size:30px_30px]" />
+      <div className="brand-glow pointer-events-none absolute -left-32 top-1/4 h-[420px] w-[420px] rounded-full blur-3xl" />
+      <div className="brand-glow pointer-events-none absolute -right-32 bottom-0 h-[360px] w-[360px] rounded-full blur-3xl" />
 
       <div className="relative z-[2] mx-auto max-w-6xl">
         <motion.div
@@ -361,16 +361,16 @@ export function About() {
           </motion.div>
 
           <motion.div variants={itemVariants} className="lg:col-span-12">
-            <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-sm">
-              <div className="flex items-center justify-between border-b border-white/10 px-5 py-3.5 md:px-6">
-                <span className="font-[family-name:var(--font-data)] text-xs text-zinc-500">
+            <div className="overflow-hidden rounded-3xl border border-border bg-foreground/[0.02] backdrop-blur-sm">
+              <div className="flex items-center justify-between border-b border-border px-5 py-3.5 md:px-6">
+                <span className="font-[family-name:var(--font-data)] text-xs text-muted-foreground/70">
                   systemctl status — core capabilities
                 </span>
-                <span className="hidden font-[family-name:var(--font-data)] text-xs text-zinc-600 sm:inline">
+                <span className="hidden font-[family-name:var(--font-data)] text-xs text-muted-foreground/50 sm:inline">
                   4 active
                 </span>
               </div>
-              <div className="divide-y divide-white/10">
+              <div className="divide-y divide-border">
                 {aboutsData.map((service) => (
                   <CapabilityRow key={service.title} service={service} />
                 ))}

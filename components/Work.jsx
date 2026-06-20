@@ -49,7 +49,7 @@ function TiltCard({ work, index }) {
         transformStyle: 'preserve-3d',
         perspective: '1000px',
       }}
-      className="group cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm transition-colors will-change-transform hover:border-indigo-400/40 hover:bg-white/[0.07] hover:shadow-[0_20px_60px_rgba(99,102,241,0.12)]"
+      className="group cursor-pointer overflow-hidden rounded-3xl border border-border bg-foreground/5 backdrop-blur-sm transition-colors will-change-transform hover:border-brand/40 hover:bg-foreground/[0.07] hover:shadow-[0_20px_60px_hsl(var(--brand-foreground)/0.12)]"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -66,7 +66,7 @@ function TiltCard({ work, index }) {
             href={work.projectLink}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-4 py-2 text-xs font-medium text-black transition-all hover:scale-105 hover:bg-indigo-400 hover:text-white"
+            className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-4 py-2 text-xs font-medium text-black transition-all hover:scale-105 hover:bg-brand hover:text-foreground"
           >
             <HiOutlineExternalLink className="text-sm" />
             Preview
@@ -75,7 +75,7 @@ function TiltCard({ work, index }) {
             href={work.codeLink}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-4 py-2 text-xs font-medium text-black transition-all hover:scale-105 hover:bg-indigo-400 hover:text-white"
+            className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-4 py-2 text-xs font-medium text-black transition-all hover:scale-105 hover:bg-brand hover:text-foreground"
           >
             <AiFillGithub className="text-sm" />
             Code
@@ -88,16 +88,16 @@ function TiltCard({ work, index }) {
           {work.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-indigo-500/20 px-2.5 py-0.5 text-xs font-semibold text-indigo-300"
+              className="rounded-full bg-brand/20 px-2.5 py-0.5 text-xs font-semibold text-brand"
             >
               {tag}
             </span>
           ))}
         </div>
-        <h3 className="mb-2 font-[family-name:var(--font-playfair)] text-xl font-semibold text-white">
+        <h3 className="mb-2 font-[family-name:var(--font-playfair)] text-xl font-semibold text-foreground">
           {work.title}
         </h3>
-        <p className="text-sm leading-relaxed text-zinc-400">{work.description}</p>
+        <p className="text-sm leading-relaxed text-muted-foreground">{work.description}</p>
       </div>
     </motion.div>
   );
@@ -119,7 +119,7 @@ export function Work() {
     <section
       id="work"
       ref={sectionRef}
-      className="relative overflow-hidden bg-zinc-950 px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
+      className="relative overflow-hidden bg-background px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
     >
       <div className="relative z-[2] mx-auto max-w-6xl">
         <div className="mb-8">
@@ -148,8 +148,8 @@ export function Work() {
               type="button"
               className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
                 activeFilter === tag
-                  ? 'border-white bg-white text-black hover:border-indigo-300 hover:bg-indigo-100'
-                  : 'border-white/10 bg-white/5 text-zinc-400 hover:border-indigo-400/50 hover:text-white'
+                  ? 'border-foreground bg-foreground text-background hover:opacity-90'
+                  : 'border-border bg-foreground/5 text-muted-foreground hover:border-brand/50 hover:text-foreground'
               }`}
               onClick={() => setActiveFilter(tag)}
             >

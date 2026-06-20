@@ -33,11 +33,11 @@ type IconConfig = {
 const iconConfigs: IconConfig[] = [
   { Icon: FaPython, color: "#3776AB", label: "Python" },
   { Icon: SiFastapi, color: "#009688", label: "FastAPI" },
-  { Icon: SiDjango, color: "#FFFFFF", label: "Django" },
+  { Icon: SiDjango, color: "currentColor", label: "Django" },
   { Icon: SiJavascript, color: "#F7DF1E", label: "JavaScript" },
   { Icon: SiTypescript, color: "#3178C6", label: "TypeScript" },
   { Icon: FaReact, color: "#61DAFB", label: "React" },
-  { Icon: SiNextdotjs, color: "#FFFFFF", label: "Next.js" },
+  { Icon: SiNextdotjs, color: "currentColor", label: "Next.js" },
   { Icon: SiPostgresql, color: "#4169E1", label: "PostgreSQL" },
   { Icon: SiRedis, color: "#DC382D", label: "Redis" },
   { Icon: FaDocker, color: "#2496ED", label: "Docker" },
@@ -71,17 +71,17 @@ export function StackFeatureSection({
   return (
     <section
       className={cn(
-        "relative flex min-h-[28rem] flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-sm lg:h-[30rem] lg:flex-row lg:items-center lg:justify-between",
+        "relative flex min-h-[28rem] flex-col overflow-hidden rounded-3xl border border-border bg-foreground/[0.03] backdrop-blur-sm lg:h-[30rem] lg:flex-row lg:items-center lg:justify-between",
         className
       )}
     >
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-purple-500/5" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand/10 via-transparent to-brand/5" />
 
       <div className="relative z-10 w-full p-8 md:p-10 lg:w-1/2 lg:pl-10">
-        <h2 className="mb-4 font-[family-name:var(--font-playfair)] text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+        <h2 className="mb-4 font-[family-name:var(--font-playfair)] text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
           {title}
         </h2>
-        <p className="mb-8 max-w-lg text-base leading-relaxed text-zinc-400 md:text-lg">
+        <p className="mb-8 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
           {description}
         </p>
         <div className="flex flex-wrap items-center gap-3">
@@ -98,7 +98,7 @@ export function StackFeatureSection({
 
       <div className="relative flex h-[22rem] w-full items-center justify-start overflow-hidden lg:h-full lg:w-1/2">
         <div className="relative flex h-[42rem] w-[42rem] translate-x-[15%] items-center justify-center sm:translate-x-[25%] lg:translate-x-[50%]">
-          <div className="flex h-24 w-24 items-center justify-center rounded-full border border-white/10 bg-zinc-900 shadow-[0_0_40px_rgba(99,102,241,0.25)]">
+          <div className="flex h-24 w-24 items-center justify-center rounded-full border border-border bg-background shadow-[0_0_40px_hsl(var(--brand-foreground)/0.25)]">
             <FaPython className="h-12 w-12 text-[#3776AB]" aria-hidden />
           </div>
 
@@ -109,7 +109,7 @@ export function StackFeatureSection({
             return (
               <div
                 key={orbitIdx}
-                className="absolute rounded-full border-2 border-dotted border-white/20"
+                className="absolute rounded-full border-2 border-dotted border-foreground/20"
                 style={{
                   width: size,
                   height: size,
@@ -123,11 +123,12 @@ export function StackFeatureSection({
                     const x = Number((50 + 50 * Math.cos(angle)).toFixed(4));
                     const y = Number((50 + 50 * Math.sin(angle)).toFixed(4));
                     const Icon = cfg.Icon;
+                    const isCurrentColor = cfg.color === "currentColor";
 
                     return (
                       <div
                         key={cfg.label}
-                        className="absolute rounded-full border border-white/10 bg-zinc-900 p-1.5 shadow-md"
+                        className="absolute rounded-full border border-border bg-background p-1.5 shadow-md"
                         style={{
                           left: `${x}%`,
                           top: `${y}%`,
@@ -135,7 +136,11 @@ export function StackFeatureSection({
                         }}
                         title={cfg.label}
                       >
-                        <Icon className="h-7 w-7" style={{ color: cfg.color }} aria-hidden />
+                        <Icon
+                          className={cn("h-7 w-7", isCurrentColor && "text-foreground")}
+                          style={isCurrentColor ? undefined : { color: cfg.color }}
+                          aria-hidden
+                        />
                       </div>
                     );
                   })}
