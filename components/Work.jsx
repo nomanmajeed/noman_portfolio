@@ -2,12 +2,146 @@
 
 import { useState, useRef, useCallback } from 'react';
 import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { Building2 } from 'lucide-react';
 import { AiFillGithub } from 'react-icons/ai';
 import { HiOutlineExternalLink } from 'react-icons/hi';
 import { images } from '@/constants/images';
 import { worksData } from '@/data';
 import { getImgSrc } from '@/lib/imageUtils';
+import { TechIconCircle } from '@/components/ui/tech-icon-circle';
+import { techStack } from '@/lib/tech-stack';
 import { SectionHeader } from './SectionHeader';
+
+function CompanyBadge({ company }) {
+  return (
+    <div className="mb-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-brand/15 px-2.5 py-1 text-xs font-medium text-brand">
+      <Building2 className="h-3 w-3" />
+      Built at {company.name}
+    </div>
+  );
+}
+
+function ProjectMedia({ work, imgClassName }) {
+  if (work.imgUrl) {
+    return (
+      <img
+        src={getImgSrc(images[work.imgUrl])}
+        alt={work.title}
+        className={imgClassName}
+      />
+    );
+  }
+
+  if (work.company) {
+    return (
+      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-brand/15 via-foreground/5 to-brand/5">
+        <img
+          src={work.company.logo}
+          alt={work.company.name}
+          className="h-20 w-20 rounded-2xl border border-border bg-white object-contain p-3 shadow-lg"
+        />
+      </div>
+    );
+  }
+
+  return null;
+}
+
+function FeaturedProjectCard({ work, index }) {
+  const reversed = index % 2 === 1;
+  const stackItems = (work.stack ?? [])
+    .map((id) => techStack.find((item) => item.id === id))
+    .filter(Boolean);
+
+  return (
+    <motion.div
+      className={`group flex flex-col overflow-hidden rounded-3xl border border-border bg-foreground/[0.03] backdrop-blur-sm lg:flex-row ${
+        reversed ? 'lg:flex-row-reverse' : ''
+      }`}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="relative flex w-full flex-col lg:w-1/2">
+        <div className="flex items-center gap-2 border-b border-border bg-foreground/[0.02] px-4 py-3">
+          <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" aria-hidden />
+          <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" aria-hidden />
+          <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/70" aria-hidden />
+          <span className="ml-2 font-[family-name:var(--font-data)] text-xs text-muted-foreground/70">
+            {work.title} — preview
+          </span>
+        </div>
+        <div className="relative h-64 flex-1 overflow-hidden md:h-80">
+          <ProjectMedia
+            work={work}
+            imgClassName="h-full w-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+      </div>
+
+      <div className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-10">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full bg-emerald-500/15 px-2.5 py-1 font-[family-name:var(--font-data)] text-[10px] font-medium uppercase tracking-wide text-emerald-600 ring-1 ring-emerald-500/25 dark:text-emerald-300">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+            featured
+          </span>
+          {work.company && <CompanyBadge company={work.company} />}
+        </div>
+        <h3 className="mb-3 font-[family-name:var(--font-playfair)] text-2xl font-semibold text-foreground md:text-3xl">
+          {work.title}
+        </h3>
+        <p className="mb-6 text-sm leading-relaxed text-muted-foreground md:text-base">
+          {work.description}
+        </p>
+
+        {stackItems.length > 0 && (
+          <div className="mb-7 flex flex-wrap gap-2.5">
+            {stackItems.map((item) => (
+              <TechIconCircle key={item.id} item={item} size="xs" />
+            ))}
+          </div>
+        )}
+
+        <div className="flex flex-wrap items-center gap-3">
+          {work.projectLink && (
+            <a
+              href={work.projectLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-all hover:-translate-y-0.5 hover:opacity-90"
+            >
+              <HiOutlineExternalLink className="text-base" />
+              View Live
+            </a>
+          )}
+          {work.codeLink && (
+            <a
+              href={work.codeLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-brand/50 hover:text-brand"
+            >
+              <AiFillGithub className="text-base" />
+              Source
+            </a>
+          )}
+          {!work.projectLink && !work.codeLink && work.company && (
+            <a
+              href={work.company.url}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-brand/50 hover:text-brand"
+            >
+              <HiOutlineExternalLink className="text-base" />
+              Company
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 function TiltCard({ work, index }) {
   const cardRef = useRef(null);
@@ -38,6 +172,10 @@ function TiltCard({ work, index }) {
     mouseY.set(0);
   }, [mouseX, mouseY]);
 
+  const stackItems = (work.stack ?? [])
+    .map((id) => techStack.find((item) => item.id === id))
+    .filter(Boolean);
+
   return (
     <motion.div
       ref={cardRef}
@@ -56,34 +194,49 @@ function TiltCard({ work, index }) {
       transition={{ delay: index * 0.1, duration: 0.5 }}
     >
       <div className="relative h-60 overflow-hidden md:h-64">
-        <img
-          src={work.imgUrl ? getImgSrc(images[work.imgUrl]) : ''}
-          alt={work.title}
-          className="h-full w-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
+        <ProjectMedia
+          work={work}
+          imgClassName="h-full w-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 flex items-center justify-center gap-3 bg-black/60 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
-          <a
-            href={work.projectLink}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-4 py-2 text-xs font-medium text-black transition-all hover:scale-105 hover:bg-brand hover:text-foreground"
-          >
-            <HiOutlineExternalLink className="text-sm" />
-            Preview
-          </a>
-          <a
-            href={work.codeLink}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-4 py-2 text-xs font-medium text-black transition-all hover:scale-105 hover:bg-brand hover:text-foreground"
-          >
-            <AiFillGithub className="text-sm" />
-            Code
-          </a>
+          {work.projectLink && (
+            <a
+              href={work.projectLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-4 py-2 text-xs font-medium text-black transition-all hover:scale-105 hover:bg-brand hover:text-foreground"
+            >
+              <HiOutlineExternalLink className="text-sm" />
+              Preview
+            </a>
+          )}
+          {work.codeLink && (
+            <a
+              href={work.codeLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-4 py-2 text-xs font-medium text-black transition-all hover:scale-105 hover:bg-brand hover:text-foreground"
+            >
+              <AiFillGithub className="text-sm" />
+              Code
+            </a>
+          )}
+          {!work.projectLink && !work.codeLink && work.company && (
+            <a
+              href={work.company.url}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-4 py-2 text-xs font-medium text-black transition-all hover:scale-105 hover:bg-brand hover:text-foreground"
+            >
+              <HiOutlineExternalLink className="text-sm" />
+              Company
+            </a>
+          )}
         </div>
       </div>
 
       <div className="p-6" style={{ transform: 'translateZ(30px)' }}>
+        {work.company && <CompanyBadge company={work.company} />}
         <div className="mb-3 flex flex-wrap gap-1.5">
           {work.tags.map((tag) => (
             <span
@@ -98,17 +251,41 @@ function TiltCard({ work, index }) {
           {work.title}
         </h3>
         <p className="text-sm leading-relaxed text-muted-foreground">{work.description}</p>
+
+        {stackItems.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {stackItems.map((item) => (
+              <TechIconCircle key={item.id} item={item} size="xs" />
+            ))}
+          </div>
+        )}
       </div>
     </motion.div>
   );
 }
 
-const allTags = ['All', 'Web App', 'Full Stack', 'Django', 'Next.js', 'React', 'MERN', 'E-Commerce'];
+const allTags = [
+  'All',
+  'Web App',
+  'Full Stack',
+  'Django',
+  'FastAPI',
+  'Next.js',
+  'React',
+  'MERN',
+  'E-Commerce',
+  'FinTech',
+  'AI/LLM',
+  'Analytics',
+  'Microservices',
+];
 
 export function Work() {
   const [activeFilter, setActiveFilter] = useState('All');
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+
+  const featuredWorks = worksData.filter((w) => w.featured);
 
   const filteredWorks =
     activeFilter === 'All'
@@ -130,11 +307,30 @@ export function Work() {
           >
             <SectionHeader
               label="Portfolio"
-              title="Personal Projects"
-              subtitle="Side projects and experiments spanning full-stack web, Django backends, and React frontends."
+              title="Projects & Client Work"
+              subtitle="Personal builds alongside production work shipped for clients and teams."
             />
           </motion.div>
         </div>
+
+        {featuredWorks.length > 0 && (
+          <div className="mb-14 flex flex-col gap-6">
+            {featuredWorks.map((work, index) => (
+              <FeaturedProjectCard key={work.title} work={work} index={index} />
+            ))}
+          </div>
+        )}
+
+        <motion.div
+          className="mb-6 flex items-center gap-3 font-[family-name:var(--font-data)] text-xs uppercase tracking-widest text-muted-foreground/60"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.4, delay: 0.15 }}
+        >
+          <span className="h-px flex-1 bg-border" />
+          All Projects
+          <span className="h-px flex-1 bg-border" />
+        </motion.div>
 
         <motion.div
           className="mb-12 flex flex-wrap gap-2"

@@ -57,8 +57,8 @@ export function TechOrbitRing({
                 .slice(orbitIdx * iconsPerOrbit, orbitIdx * iconsPerOrbit + iconsPerOrbit)
                 .map((item, iconIdx) => {
                   const angle = iconIdx * angleStep;
-                  const x = 50 + 50 * Math.cos(angle);
-                  const y = 50 + 50 * Math.sin(angle);
+                  const x = Number((50 + 50 * Math.cos(angle)).toFixed(4));
+                  const y = Number((50 + 50 * Math.sin(angle)).toFixed(4));
 
                   return (
                     <div

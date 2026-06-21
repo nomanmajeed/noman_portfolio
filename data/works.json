@@ -5,7 +5,9 @@
     "projectLink": "https://github.com/nomanmajeed",
     "codeLink": "https://github.com/nomanmajeed",
     "imgUrl": "spotify",
-    "tags": ["Next.js", "Full Stack"]
+    "tags": ["Next.js", "Full Stack"],
+    "featured": true,
+    "stack": ["nextjs", "typescript", "mongodb", "tailwind"]
   },
   {
     "title": "Finlytics",
@@ -13,7 +15,9 @@
     "projectLink": "https://github.com/nomanmajeed",
     "codeLink": "https://github.com/nomanmajeed",
     "imgUrl": "amazon",
-    "tags": ["MERN", "Web App"]
+    "tags": ["MERN", "Web App"],
+    "featured": true,
+    "stack": ["react", "nodejs", "express", "mongodb"]
   },
   {
     "title": "Lead CRM",
@@ -38,5 +42,101 @@
     "codeLink": "https://github.com/nomanmajeed",
     "imgUrl": "nb",
     "tags": ["React", "Web App"]
+  },
+  {
+    "title": "Multi-Tenant Finance CRM",
+    "description": "Full-stack CRM built from scratch with the founding team — deals pipeline, contract e-signing, a configurable workflow engine, and Stripe billing. MVP live with real users in 5 months.",
+    "tags": ["Next.js", "FinTech"],
+    "stack": ["nextjs", "supabase", "stripe"],
+    "company": {
+      "name": "Tally.no",
+      "type": "product",
+      "url": "https://tally.no",
+      "logo": "/assets/companies/tally.png"
+    }
+  },
+  {
+    "title": "Working Capital & AI Forecasting",
+    "description": "Built a Working Capital module and Scenario Builder for financial modeling, plus an AI forecasting commentary layer (OpenAI/DeepSeek), with Xero/QuickBooks integrations cutting manual data entry by 70%.",
+    "tags": ["Django", "FinTech"],
+    "stack": ["python", "django", "postgresql", "openai", "aws"],
+    "company": {
+      "name": "DashAnalytix",
+      "type": "product",
+      "url": "https://dashanalytix.com",
+      "logo": "/assets/companies/dashanalytix.jpeg"
+    }
+  },
+  {
+    "title": "ClickHouse Analytics Engine",
+    "description": "Built a QueryBuilder on ClickHouse for high-volume analytics, cutting query complexity by 40%, plus ad-platform integrations (Shopify, WordPress, Google/Meta Ads) and a Chrome extension.",
+    "tags": ["FastAPI", "Analytics"],
+    "stack": ["fastapi", "clickhouse", "typescript", "react"],
+    "company": {
+      "name": "Usermaven",
+      "type": "product",
+      "url": "https://usermaven.com",
+      "logo": "/assets/companies/usermaven.jpeg"
+    }
+  },
+  {
+    "title": "Microservices Migration on GKE",
+    "description": "Migrated Flask microservices (Corrections, Attorney Mail, Physical Mail) to async FastAPI on GKE — 50% faster responses — with SSO, JWT feature flags, and zero-downtime CI/CD.",
+    "tags": ["FastAPI", "Microservices"],
+    "stack": ["python", "fastapi", "kubernetes", "gcp"],
+    "company": {
+      "name": "Pigeonly",
+      "type": "product",
+      "url": "https://pigeonly.com",
+      "logo": "/assets/companies/pigeonly.png"
+    }
+  },
+  {
+    "title": "Peerlogic — Dental Conversational AI",
+    "description": "Conversational AI receptionist for dental practices — integrated VoIP providers (GoTo, Bandwidth, RingCentral, NexHealth) via a GCP Pub/Sub pipeline for real-time call streaming and audio processing.",
+    "tags": ["Django", "AI/LLM"],
+    "stack": ["python", "django", "postgresql", "gcp"],
+    "company": {
+      "name": "Datics.ai",
+      "type": "service",
+      "url": "https://datics.ai",
+      "logo": "/assets/companies/datics.jpeg"
+    }
+  },
+  {
+    "title": "Secure Tax Office",
+    "description": "Led data modeling and transformation for a county tax-sale platform — engineered the Tax Sale, Deduction, Disbursement, and Reporting modules used across dozens of jurisdictions.",
+    "tags": ["Django", "FinTech"],
+    "stack": ["python", "django", "postgresql"],
+    "company": {
+      "name": "Datics.ai",
+      "type": "service",
+      "url": "https://datics.ai",
+      "logo": "/assets/companies/datics.jpeg"
+    }
+  },
+  {
+    "title": "Tax Collector",
+    "description": "Architected the database and built RESTful APIs for a tax-collection platform, integrated with Secure Tax Office across 50+ parishes.",
+    "tags": ["Django", "FinTech"],
+    "stack": ["python", "django", "postgresql"],
+    "company": {
+      "name": "Datics.ai",
+      "type": "service",
+      "url": "https://datics.ai",
+      "logo": "/assets/companies/datics.jpeg"
+    }
+  },
+  {
+    "title": "Tasdeeq",
+    "description": "Financial analytics platform — reporting, budgets, and credit analytics modules in Django, with Vertica DB pipelines for large-scale data processing.",
+    "tags": ["Django", "FinTech"],
+    "stack": ["python", "django"],
+    "company": {
+      "name": "TenX.ai",
+      "type": "service",
+      "url": "https://tenx.ai",
+      "logo": "/assets/companies/tenx.png"
+    }
   }
 ]

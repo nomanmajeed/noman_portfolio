@@ -4,6 +4,7 @@ import {
   SiCelery,
   SiClickhouse,
   SiDjango,
+  SiExpress,
   SiFastapi,
   SiFlask,
   SiGithubactions,
@@ -13,8 +14,10 @@ import {
   SiJavascript,
   SiKubernetes,
   SiLangchain,
+  SiMongodb,
   SiMysql,
   SiNextdotjs,
+  SiNodedotjs,
   SiOpenai,
   SiPostgresql,
   SiPydantic,
@@ -53,8 +56,13 @@ export const techStack: TechStackItem[] = [
   { id: "nextjs", name: "Next.js", Icon: SiNextdotjs, color: "currentColor" },
   { id: "tailwind", name: "Tailwind CSS", Icon: SiTailwindcss, color: "#06B6D4" },
 
+  // Node ecosystem
+  { id: "nodejs", name: "Node.js", Icon: SiNodedotjs, color: "#5FA04E" },
+  { id: "express", name: "Express", Icon: SiExpress, color: "currentColor" },
+
   // Data stores
   { id: "postgresql", name: "PostgreSQL", Icon: SiPostgresql, color: "#4169E1" },
+  { id: "mongodb", name: "MongoDB", Icon: SiMongodb, color: "#47A248" },
   { id: "redis", name: "Redis", Icon: SiRedis, color: "#DC382D" },
   { id: "clickhouse", name: "ClickHouse", Icon: SiClickhouse, color: "#FFCC01" },
   { id: "mysql", name: "MySQL", Icon: SiMysql, color: "#4479A1" },
