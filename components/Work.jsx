@@ -316,11 +316,12 @@ export function Work() {
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
   const featuredWorks = worksData.filter((w) => w.featured);
+  const allProjects = worksData.filter((w) => !w.featured);
 
   const filteredWorks =
     activeFilter === 'All'
-      ? worksData
-      : worksData.filter((w) => w.tags.includes(activeFilter));
+      ? allProjects
+      : allProjects.filter((w) => w.tags.includes(activeFilter));
 
   return (
     <section
