@@ -26,7 +26,17 @@ Keys are mapped in `constants/images.js`.
 
 Each project in `data/works.json` can have a full image gallery shown in its detail modal (opened via the card's expand button or double-click):
 
-- Put numbered images in `projects/<slug>/`, e.g. `projects/tally-crm/1.png`, `projects/tally-crm/2.png`, `projects/tally-crm/3.png`.
-- List them in that project's `images` array in `data/works.json`, as plain paths: `"images": ["/assets/projects/tally-crm/1.png", "/assets/projects/tally-crm/2.png"]`.
+- Put numbered images in `projects/<slug>/`, e.g. `projects/tally-crm/tally-crm-1.png`, `projects/tally-crm/tally-crm-2.png`, etc.
+- List them in that project's `images` array in `data/works.json`, as plain paths: `"images": ["/assets/projects/tally-crm/tally-crm-1.png", "/assets/projects/tally-crm/tally-crm-2.png"]`.
 - No registration in `constants/images.js` needed — gallery images are referenced as direct paths, not keys.
-- If `images` is omitted or empty, the modal falls back to the card's single `imgUrl` / company logo, so nothing breaks while a gallery is still empty.
+- If `images` is omitted or empty, the modal falls back to `previewImage`, then the card's `imgUrl` / company logo, so nothing breaks while a gallery is still empty.
+
+## Card preview image
+
+`previewImage` is a single explicit path used as the card thumbnail — shown by both the regular grid card and the featured card — and as the first image in the detail modal's gallery:
+
+```json
+"previewImage": "/assets/projects/tally-crm/tally-crm-1.png"
+```
+
+Pick whichever image best represents the project; it doesn't have to be `images[0]`. If omitted, the card falls back to `images[0]`, then `imgUrl`, then the company logo.

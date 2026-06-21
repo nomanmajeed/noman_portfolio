@@ -11,7 +11,9 @@ import { techStack } from '@/lib/tech-stack';
 import { TechIconCircle } from './tech-icon-circle';
 
 function resolveGallery(work) {
-  if (work.images?.length) return work.images;
+  const rest = (work.images ?? []).filter((img) => img !== work.previewImage);
+  const gallery = work.previewImage ? [work.previewImage, ...rest] : rest;
+  if (gallery.length) return gallery;
   if (work.imgUrl) return [getImgSrc(images[work.imgUrl])];
   if (work.company?.logo) return [work.company.logo];
   return [];
@@ -58,7 +60,7 @@ export function ProjectDetailModal({ work, onClose }) {
           onClick={onClose}
         >
           <motion.div
-            className="relative flex max-h-[44rem] w-full max-w-4xl flex-col overflow-hidden rounded-3xl border border-border bg-background shadow-2xl md:h-[40rem] md:flex-row"
+            className="relative flex max-h-[44rem] w-full max-w-6xl flex-col overflow-hidden rounded-3xl border border-border bg-background shadow-2xl md:h-[38rem] md:flex-row"
             initial={{ opacity: 0, scale: 0.95, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
@@ -74,7 +76,7 @@ export function ProjectDetailModal({ work, onClose }) {
               <X className="h-4 w-4" />
             </button>
 
-            <div className="relative h-64 w-full shrink-0 overflow-hidden bg-foreground/5 md:h-full md:w-1/2">
+            <div className="relative h-64 w-full shrink-0 overflow-hidden bg-foreground/5 md:h-full md:w-3/5">
               {gallery.length > 0 && (
                 <motion.img
                   key={activeImage}
@@ -83,7 +85,7 @@ export function ProjectDetailModal({ work, onClose }) {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.25 }}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                 />
               )}
 
@@ -122,7 +124,7 @@ export function ProjectDetailModal({ work, onClose }) {
               )}
             </div>
 
-            <div className="flex w-full flex-col overflow-y-auto p-6 md:w-1/2 md:p-8">
+            <div className="flex w-full flex-col overflow-y-auto p-6 md:w-2/5 md:p-8">
               {work.company && (
                 <div className="mb-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-brand/15 px-2.5 py-1 text-xs font-medium text-brand">
                   <Building2 className="h-3 w-3" />

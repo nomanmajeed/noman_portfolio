@@ -39,6 +39,14 @@ function CompanyBadge({ company }) {
 }
 
 function ProjectMedia({ work, imgClassName }) {
+  if (work.previewImage) {
+    return <img src={work.previewImage} alt={work.title} className={imgClassName} />;
+  }
+
+  if (work.images?.length) {
+    return <img src={work.images[0]} alt={work.title} className={imgClassName} />;
+  }
+
   if (work.imgUrl) {
     return (
       <img
@@ -81,7 +89,7 @@ function FeaturedProjectCard({ work, index, onOpenDetail }) {
       transition={{ duration: 0.5 }}
       onDoubleClick={onOpenDetail}
     >
-      <div className="relative flex w-full flex-col lg:w-1/2">
+      <div className="relative flex w-full flex-col lg:w-3/5">
         <div className="flex items-center gap-2 border-b border-border bg-foreground/[0.02] px-4 py-3">
           <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" aria-hidden />
           <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" aria-hidden />
@@ -99,7 +107,7 @@ function FeaturedProjectCard({ work, index, onOpenDetail }) {
         </div>
       </div>
 
-      <div className="flex w-full flex-col justify-center p-8 lg:w-1/2 lg:p-10">
+      <div className="flex w-full flex-col justify-center p-8 lg:w-2/5 lg:p-10">
         <div className="flex flex-wrap items-center gap-2">
           <span className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full bg-emerald-500/15 px-2.5 py-1 font-[family-name:var(--font-data)] text-[10px] font-medium uppercase tracking-wide text-emerald-600 ring-1 ring-emerald-500/25 dark:text-emerald-300">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
