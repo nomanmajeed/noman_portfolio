@@ -2,7 +2,7 @@
 
 import { useMemo, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Award, ChevronDown, ExternalLink } from 'lucide-react';
+import { ChevronDown, ExternalLink } from 'lucide-react';
 import { experiencesData, profileData } from '@/data';
 import { SectionHeader } from './SectionHeader';
 
@@ -23,6 +23,35 @@ function CompanyLogo({ company, logo }) {
 
   return (
     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-border bg-gradient-to-br from-brand/30 to-brand/15 text-sm font-bold text-foreground">
+      {initial}
+    </div>
+  );
+}
+
+function getCertFallbackInitial(cert) {
+  if (/comsats/i.test(cert.issuer)) return 'C';
+  if (/dice/i.test(cert.issuer)) return 'D';
+  if (/jsm/i.test(cert.issuer)) return 'J';
+  return cert.issuer.charAt(0).toUpperCase();
+}
+
+function CertificationLogo({ cert }) {
+  const [failed, setFailed] = useState(false);
+  const initial = getCertFallbackInitial(cert);
+
+  if (cert.logo && !failed) {
+    return (
+      <img
+        src={cert.logo}
+        alt={`${cert.issuer} logo`}
+        className="h-11 w-11 shrink-0 rounded-xl border border-border bg-white object-contain p-1.5 shadow-sm"
+        onError={() => setFailed(true)}
+      />
+    );
+  }
+
+  return (
+    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border bg-gradient-to-br from-brand/30 to-brand/15 text-sm font-bold text-foreground">
       {initial}
     </div>
   );
@@ -237,17 +266,16 @@ export function Skills() {
               {profileData.certifications.map((cert) => (
                 <li
                   key={cert.title}
-                  className="flex items-start gap-3 rounded-xl border border-border bg-foreground/[0.02] p-3.5 transition-colors hover:border-brand/30 hover:bg-foreground/[0.05]"
+                  className="group flex items-start gap-3.5 rounded-2xl border border-border bg-foreground/[0.02] p-4 transition-colors hover:border-brand/30 hover:bg-foreground/[0.05]"
                 >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-brand/20 to-brand/10 ring-1 ring-brand/20">
-                    <Award className="h-4 w-4 text-brand" strokeWidth={1.75} />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-sm font-semibold leading-snug text-foreground">
+                  <CertificationLogo cert={cert} />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-semibold leading-snug text-foreground transition-colors group-hover:text-brand">
                       {cert.title}
                     </p>
-                    <p className="mt-0.5 text-xs text-muted-foreground">
-                      {cert.issuer} <span className="text-muted-foreground/50">·</span> {cert.date}
+                    <p className="mt-1 text-xs font-medium text-foreground/80">{cert.issuer}</p>
+                    <p className="mt-0.5 font-[family-name:var(--font-data)] text-[11px] tabular-nums text-muted-foreground/70">
+                      {cert.date}
                     </p>
                   </div>
                 </li>

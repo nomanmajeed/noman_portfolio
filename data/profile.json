@@ -22,9 +22,29 @@
     { "value": "85%", "label": "Faster Deployments" }
   ],
   "certifications": [
-    { "title": "Ultimate Next.js Course", "issuer": "JSMastery", "date": "Dec 2024" },
-    { "title": "Deep Learning for AI", "issuer": "Dice Analytics", "date": "Apr 2019" },
-    { "title": "Python and Data Science", "issuer": "Dice Analytics", "date": "Aug 2018" },
-    { "title": "Merit Scholarship", "issuer": "2nd Position, CS Dept, COMSATS", "date": "2016–2020" }
+    {
+      "title": "Ultimate Next.js Course",
+      "issuer": "JSMastery",
+      "date": "Dec 2024",
+      "logo": "/assets/certifications/logo-jsm.webp"
+    },
+    {
+      "title": "Deep Learning for AI",
+      "issuer": "Dice Analytics",
+      "date": "Apr 2019",
+      "logo": "/assets/companies/dice-analytics.png"
+    },
+    {
+      "title": "Python and Data Science",
+      "issuer": "Dice Analytics",
+      "date": "Aug 2018",
+      "logo": "/assets/companies/dice-analytics.png"
+    },
+    {
+      "title": "Merit Scholarship — 2nd Position, CS Dept",
+      "issuer": "COMSATS University",
+      "date": "2016–2020",
+      "logo": "/assets/certifications/inductin.jpeg"
+    }
   ]
 }
