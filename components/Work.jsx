@@ -2,15 +2,32 @@
 
 import { useState, useRef, useCallback } from 'react';
 import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Building2 } from 'lucide-react';
+import { Building2, Maximize2 } from 'lucide-react';
 import { AiFillGithub } from 'react-icons/ai';
 import { HiOutlineExternalLink } from 'react-icons/hi';
 import { images } from '@/constants/images';
 import { worksData } from '@/data';
 import { getImgSrc } from '@/lib/imageUtils';
 import { TechIconCircle } from '@/components/ui/tech-icon-circle';
+import { ProjectDetailModal } from '@/components/ui/project-detail-modal';
 import { techStack } from '@/lib/tech-stack';
 import { SectionHeader } from './SectionHeader';
+
+function DetailButton({ onOpen, className = '' }) {
+  return (
+    <button
+      type="button"
+      onClick={(e) => {
+        e.stopPropagation();
+        onOpen();
+      }}
+      aria-label="View project details"
+      className={`flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/70 ${className}`}
+    >
+      <Maximize2 className="h-4 w-4" />
+    </button>
+  );
+}
 
 function CompanyBadge({ company }) {
   return (
@@ -47,7 +64,7 @@ function ProjectMedia({ work, imgClassName }) {
   return null;
 }
 
-function FeaturedProjectCard({ work, index }) {
+function FeaturedProjectCard({ work, index, onOpenDetail }) {
   const reversed = index % 2 === 1;
   const stackItems = (work.stack ?? [])
     .map((id) => techStack.find((item) => item.id === id))
@@ -62,6 +79,7 @@ function FeaturedProjectCard({ work, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5 }}
+      onDoubleClick={onOpenDetail}
     >
       <div className="relative flex w-full flex-col lg:w-1/2">
         <div className="flex items-center gap-2 border-b border-border bg-foreground/[0.02] px-4 py-3">
@@ -77,6 +95,7 @@ function FeaturedProjectCard({ work, index }) {
             work={work}
             imgClassName="h-full w-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
           />
+          <DetailButton onOpen={onOpenDetail} className="absolute right-3 top-3" />
         </div>
       </div>
 
@@ -143,7 +162,7 @@ function FeaturedProjectCard({ work, index }) {
   );
 }
 
-function TiltCard({ work, index }) {
+function TiltCard({ work, index, onOpenDetail }) {
   const cardRef = useRef(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -192,12 +211,14 @@ function TiltCard({ work, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
+      onDoubleClick={onOpenDetail}
     >
       <div className="relative h-60 overflow-hidden md:h-64">
         <ProjectMedia
           work={work}
           imgClassName="h-full w-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
         />
+        <DetailButton onOpen={onOpenDetail} className="absolute right-3 top-3 z-10" />
         <div className="absolute inset-0 flex items-center justify-center gap-3 bg-black/60 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
           {work.projectLink && (
             <a
@@ -282,6 +303,7 @@ const allTags = [
 
 export function Work() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [selectedWork, setSelectedWork] = useState(null);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
@@ -316,7 +338,12 @@ export function Work() {
         {featuredWorks.length > 0 && (
           <div className="mb-14 flex flex-col gap-6">
             {featuredWorks.map((work, index) => (
-              <FeaturedProjectCard key={work.title} work={work} index={index} />
+              <FeaturedProjectCard
+                key={work.title}
+                work={work}
+                index={index}
+                onOpenDetail={() => setSelectedWork(work)}
+              />
             ))}
           </div>
         )}
@@ -356,10 +383,17 @@ export function Work() {
 
         <div className="grid gap-8 md:grid-cols-2">
           {filteredWorks.map((work, index) => (
-            <TiltCard key={work.title} work={work} index={index} />
+            <TiltCard
+              key={work.title}
+              work={work}
+              index={index}
+              onOpenDetail={() => setSelectedWork(work)}
+            />
           ))}
         </div>
       </div>
+
+      <ProjectDetailModal work={selectedWork} onClose={() => setSelectedWork(null)} />
     </section>
   );
 }

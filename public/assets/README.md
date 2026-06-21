@@ -21,3 +21,12 @@ All portfolio images live under `public/assets/` and are referenced by URL path 
 - **Project image:** `projects/<name>.png` → use `imgUrl` key in `data/works.json`
 
 Keys are mapped in `constants/images.js`.
+
+## Project galleries
+
+Each project in `data/works.json` can have a full image gallery shown in its detail modal (opened via the card's expand button or double-click):
+
+- Put numbered images in `projects/<slug>/`, e.g. `projects/tally-crm/1.png`, `projects/tally-crm/2.png`, `projects/tally-crm/3.png`.
+- List them in that project's `images` array in `data/works.json`, as plain paths: `"images": ["/assets/projects/tally-crm/1.png", "/assets/projects/tally-crm/2.png"]`.
+- No registration in `constants/images.js` needed — gallery images are referenced as direct paths, not keys.
+- If `images` is omitted or empty, the modal falls back to the card's single `imgUrl` / company logo, so nothing breaks while a gallery is still empty.

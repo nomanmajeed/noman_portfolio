@@ -1,53 +1,70 @@
 [
   {
     "title": "Devflow",
+    "slug": "devflow",
     "description": "Stack Overflow-style Q&A community platform built with Next.js and MongoDB for developers to share knowledge and solve problems.",
     "projectLink": "https://github.com/nomanmajeed",
     "codeLink": "https://github.com/nomanmajeed",
     "imgUrl": "spotify",
+    "images": ["/assets/projects/devflow/1.png"],
     "tags": ["Next.js", "Full Stack"],
     "featured": true,
     "stack": ["nextjs", "typescript", "mongodb", "tailwind"]
   },
   {
     "title": "Finlytics",
+    "slug": "finlytics",
     "description": "Personal finance analytics app for tracking spending, visualizing trends, and managing budgets with interactive dashboards.",
     "projectLink": "https://github.com/nomanmajeed",
     "codeLink": "https://github.com/nomanmajeed",
     "imgUrl": "amazon",
+    "images": ["/assets/projects/finlytics/1.png"],
     "tags": ["MERN", "Web App"],
     "featured": true,
     "stack": ["react", "nodejs", "express", "mongodb"]
   },
   {
     "title": "Lead CRM",
+    "slug": "lead-crm",
     "description": "Customer relationship management system with lead tracking, pipeline views, and contact management built on Django.",
     "projectLink": "https://github.com/nomanmajeed",
     "codeLink": "https://github.com/nomanmajeed",
     "imgUrl": "bolt",
+    "images": ["/assets/projects/lead-crm/1.png"],
     "tags": ["Django", "Web App"]
   },
   {
     "title": "WooStore",
+    "slug": "woostore",
     "description": "Full-featured online shopping platform with product catalog, cart, checkout flow, and order management.",
     "projectLink": "https://github.com/nomanmajeed",
     "codeLink": "https://github.com/nomanmajeed",
     "imgUrl": "asus",
+    "images": ["/assets/projects/woostore/1.png"],
     "tags": ["Django", "E-Commerce"]
   },
   {
     "title": "Doomflix",
+    "slug": "doomflix",
     "description": "Video streaming platform replica with browse UI, authentication, and Firebase-backed content delivery.",
     "projectLink": "https://github.com/nomanmajeed",
     "codeLink": "https://github.com/nomanmajeed",
     "imgUrl": "nb",
+    "images": ["/assets/projects/doomflix/1.png"],
     "tags": ["React", "Web App"]
   },
   {
     "title": "Multi-Tenant Finance CRM",
+    "slug": "tally-crm",
     "description": "Full-stack CRM built from scratch with the founding team — deals pipeline, contract e-signing, a configurable workflow engine, and Stripe billing. MVP live with real users in 5 months.",
+    "images": ["/assets/projects/tally-crm/1.png"],
     "tags": ["Next.js", "FinTech"],
     "stack": ["nextjs", "supabase", "stripe"],
+    "highlights": [
+      "Built CRM core: companies, deals pipeline (lead → won → onboarding), contacts with many-to-many linking, and saved views.",
+      "Developed offer composer with services, bundles, and pricing; contract templates with Criipto digital signing.",
+      "Integrated Stripe subscriptions, Google/Microsoft SSO, MFA, and KYC/KYB via Signicat."
+    ],
     "company": {
       "name": "Tally.no",
       "type": "product",
@@ -57,9 +74,16 @@
   },
   {
     "title": "Working Capital & AI Forecasting",
+    "slug": "dashanalytix",
     "description": "Built a Working Capital module and Scenario Builder for financial modeling, plus an AI forecasting commentary layer (OpenAI/DeepSeek), with Xero/QuickBooks integrations cutting manual data entry by 70%.",
+    "images": ["/assets/projects/dashanalytix/1.jpeg"],
     "tags": ["Django", "FinTech"],
     "stack": ["python", "django", "postgresql", "openai", "aws"],
+    "highlights": [
+      "Built Working Capital module (AP/AR tracking, liquidity projections) and Scenario Builder for financial modeling.",
+      "Integrated Xero/QuickBooks OAuth 2.0 — 70% less manual data entry.",
+      "Built AI forecasting commentary layer (OpenAI/DeepSeek) with usage-based billing."
+    ],
     "company": {
       "name": "DashAnalytix",
       "type": "product",
@@ -69,9 +93,16 @@
   },
   {
     "title": "ClickHouse Analytics Engine",
+    "slug": "usermaven",
     "description": "Built a QueryBuilder on ClickHouse for high-volume analytics, cutting query complexity by 40%, plus ad-platform integrations (Shopify, WordPress, Google/Meta Ads) and a Chrome extension.",
+    "images": ["/assets/projects/usermaven/1.jpeg"],
     "tags": ["FastAPI", "Analytics"],
     "stack": ["fastapi", "clickhouse", "typescript", "react"],
+    "highlights": [
+      "Integrated ClickHouse for high-volume analytics; built a QueryBuilder reducing query complexity by 40%.",
+      "Built WordPress, Shopify, LinkedIn Ads, Google Ads, and Meta Ads integrations.",
+      "Developed a Chrome extension for IP-based traffic exclusion and custom Shopify/WooCommerce apps."
+    ],
     "company": {
       "name": "Usermaven",
       "type": "product",
@@ -81,9 +112,16 @@
   },
   {
     "title": "Microservices Migration on GKE",
+    "slug": "pigeonly",
     "description": "Migrated Flask microservices (Corrections, Attorney Mail, Physical Mail) to async FastAPI on GKE — 50% faster responses — with SSO, JWT feature flags, and zero-downtime CI/CD.",
+    "images": ["/assets/projects/pigeonly/1.png"],
     "tags": ["FastAPI", "Microservices"],
     "stack": ["python", "fastapi", "kubernetes", "gcp"],
+    "highlights": [
+      "Maintained 3 production microservices (Corrections, Attorney Mail, Physical Mail) on GKE.",
+      "Migrated Flask to FastAPI with async refactoring — 50% response time reduction, 60% less boilerplate.",
+      "Enforced GitLab CI with a 95% Pytest coverage gate and zero-downtime rolling deployments."
+    ],
     "company": {
       "name": "Pigeonly",
       "type": "product",
@@ -93,9 +131,15 @@
   },
   {
     "title": "Peerlogic — Dental Conversational AI",
+    "slug": "peerlogic",
     "description": "Conversational AI receptionist for dental practices — integrated VoIP providers (GoTo, Bandwidth, RingCentral, NexHealth) via a GCP Pub/Sub pipeline for real-time call streaming and audio processing.",
+    "images": ["/assets/projects/peerlogic/1.jpeg"],
     "tags": ["Django", "AI/LLM"],
     "stack": ["python", "django", "postgresql", "gcp"],
+    "highlights": [
+      "Integrated VoIP providers (GoTo, Bandwidth, Netsapiens, RingCentral, NexHealth) via a GCP Pub/Sub pipeline.",
+      "Configured webhooks and cloud functions for real-time call streaming and audio processing."
+    ],
     "company": {
       "name": "Datics.ai",
       "type": "service",
@@ -105,9 +149,15 @@
   },
   {
     "title": "Secure Tax Office",
+    "slug": "secure-tax-office",
     "description": "Led data modeling and transformation for a county tax-sale platform — engineered the Tax Sale, Deduction, Disbursement, and Reporting modules used across dozens of jurisdictions.",
+    "images": ["/assets/projects/secure-tax-office/1.jpeg"],
     "tags": ["Django", "FinTech"],
     "stack": ["python", "django", "postgresql"],
+    "highlights": [
+      "Led data modeling and transformation for the platform.",
+      "Engineered Tax Sale, Deduction, Disbursement, and Reports modules."
+    ],
     "company": {
       "name": "Datics.ai",
       "type": "service",
@@ -117,9 +167,15 @@
   },
   {
     "title": "Tax Collector",
+    "slug": "tax-collector",
     "description": "Architected the database and built RESTful APIs for a tax-collection platform, integrated with Secure Tax Office across 50+ parishes.",
+    "images": ["/assets/projects/tax-collector/1.jpeg"],
     "tags": ["Django", "FinTech"],
     "stack": ["python", "django", "postgresql"],
+    "highlights": [
+      "Architected the database and developed RESTful APIs.",
+      "Integrated with Secure Tax Office across 50+ parishes."
+    ],
     "company": {
       "name": "Datics.ai",
       "type": "service",
@@ -129,9 +185,16 @@
   },
   {
     "title": "Tasdeeq",
+    "slug": "tasdeeq",
     "description": "Financial analytics platform — reporting, budgets, and credit analytics modules in Django, with Vertica DB pipelines for large-scale data processing.",
+    "images": ["/assets/projects/tasdeeq/1.png"],
     "tags": ["Django", "FinTech"],
     "stack": ["python", "django"],
+    "highlights": [
+      "Developed and optimized system modules for financial reporting and budgets.",
+      "Built forecast analytics features using Python and Django.",
+      "Worked with Vertica DB for large-scale data processing."
+    ],
     "company": {
       "name": "TenX.ai",
       "type": "service",
