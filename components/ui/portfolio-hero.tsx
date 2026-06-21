@@ -43,7 +43,7 @@ const itemVariants: Variants = {
 };
 
 const SPRING = { stiffness: 110, damping: 24, mass: 0.5 };
-const CURSOR_SPRING = { stiffness: 55, damping: 22, mass: 0.7 };
+const CURSOR_SPRING = { stiffness: 180, damping: 26, mass: 0.35 };
 
 function HighlightBadge({ label }: { label: string }) {
   return (
@@ -131,7 +131,7 @@ export function PortfolioHero({
   const smoothY = useSpring(pointerY, SPRING);
   const smoothCursorX = useSpring(cursorX, CURSOR_SPRING);
   const smoothCursorY = useSpring(cursorY, CURSOR_SPRING);
-  const smoothGlowOpacity = useSpring(glowOpacity, { stiffness: 120, damping: 28 });
+  const smoothGlowOpacity = useSpring(glowOpacity, { stiffness: 200, damping: 30, mass: 0.3 });
 
   const textX = useTransform(smoothX, [-0.5, 0.5], [14, -14]);
   const textY = useTransform(smoothY, [-0.5, 0.5], [10, -10]);
