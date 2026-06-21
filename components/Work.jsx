@@ -9,6 +9,11 @@ import { worksData } from '@/data';
 import { TechIconCircle } from '@/components/ui/tech-icon-circle';
 import { ProjectDetailModal } from '@/components/ui/project-detail-modal';
 import { ProjectMedia } from '@/components/ui/project-media';
+import {
+  ProjectFilters,
+  buildFilterOptions,
+  matchesMultiFilters,
+} from '@/components/ui/project-filters';
 import { techStack } from '@/lib/tech-stack';
 import { SectionHeader } from './SectionHeader';
 
@@ -258,41 +263,37 @@ function TiltCard({ work, index, onOpenDetail }) {
   );
 }
 
-const allTags = [
-  'All',
-  'Web App',
-  'Full Stack',
-  'Django',
-  'FastAPI',
-  'Next.js',
-  'React',
-  'MERN',
-  'E-Commerce',
-  'FinTech',
-  'AI/LLM',
-  'Analytics',
-  'Microservices',
-];
-
 export function Work() {
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [selectedDomains, setSelectedDomains] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [selectedSkills, setSelectedSkills] = useState([]);
   const [selectedWork, setSelectedWork] = useState(null);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
   const featuredWorks = worksData.filter((w) => w.featured);
   const allProjects = worksData.filter((w) => !w.featured);
+  const filterOptions = buildFilterOptions(allProjects);
 
-  const filteredWorks =
-    activeFilter === 'All'
-      ? allProjects
-      : allProjects.filter((w) => w.tags.includes(activeFilter));
+  const filteredWorks = allProjects.filter((work) =>
+    matchesMultiFilters(work, {
+      domains: selectedDomains,
+      tags: selectedTags,
+      skills: selectedSkills,
+    })
+  );
+
+  const clearFilters = () => {
+    setSelectedDomains([]);
+    setSelectedTags([]);
+    setSelectedSkills([]);
+  };
 
   return (
     <section
       id="work"
       ref={sectionRef}
-      className="relative overflow-hidden bg-background px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
+      className="relative bg-background px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
     >
       <div className="relative z-[2] mx-auto max-w-6xl">
         <div className="mb-8">
@@ -334,37 +335,43 @@ export function Work() {
         </motion.div>
 
         <motion.div
-          className="mb-12 flex flex-wrap gap-2"
+          className="mb-8"
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.4, delay: 0.2 }}
         >
-          {allTags.map((tag) => (
-            <button
-              key={tag}
-              type="button"
-              className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
-                activeFilter === tag
-                  ? 'border-foreground bg-foreground text-background hover:opacity-90'
-                  : 'border-border bg-foreground/5 text-muted-foreground hover:border-brand/50 hover:text-foreground'
-              }`}
-              onClick={() => setActiveFilter(tag)}
-            >
-              {tag}
-            </button>
-          ))}
+          <ProjectFilters
+            options={filterOptions}
+            selectedDomains={selectedDomains}
+            selectedTags={selectedTags}
+            selectedSkills={selectedSkills}
+            onDomainsChange={setSelectedDomains}
+            onTagsChange={setSelectedTags}
+            onSkillsChange={setSelectedSkills}
+            onClearAll={clearFilters}
+          />
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {filteredWorks.map((work, index) => (
-            <TiltCard
-              key={work.title}
-              work={work}
-              index={index}
-              onOpenDetail={() => setSelectedWork(work)}
-            />
-          ))}
-        </div>
+        {filteredWorks.length === 0 ? (
+          <motion.p
+            className="py-16 text-center text-sm text-muted-foreground"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            No projects match these filters.
+          </motion.p>
+        ) : (
+          <div className="grid gap-8 md:grid-cols-2">
+            {filteredWorks.map((work, index) => (
+              <TiltCard
+                key={work.title}
+                work={work}
+                index={index}
+                onOpenDetail={() => setSelectedWork(work)}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       <ProjectDetailModal work={selectedWork} onClose={() => setSelectedWork(null)} />
