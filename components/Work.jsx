@@ -5,11 +5,10 @@ import { motion, useInView, useMotionValue, useSpring, useTransform } from 'fram
 import { Building2, Maximize2 } from 'lucide-react';
 import { AiFillGithub } from 'react-icons/ai';
 import { HiOutlineExternalLink } from 'react-icons/hi';
-import { images } from '@/constants/images';
 import { worksData } from '@/data';
-import { getImgSrc } from '@/lib/imageUtils';
 import { TechIconCircle } from '@/components/ui/tech-icon-circle';
 import { ProjectDetailModal } from '@/components/ui/project-detail-modal';
+import { ProjectMedia } from '@/components/ui/project-media';
 import { techStack } from '@/lib/tech-stack';
 import { SectionHeader } from './SectionHeader';
 
@@ -36,40 +35,6 @@ function CompanyBadge({ company }) {
       Built at {company.name}
     </div>
   );
-}
-
-function ProjectMedia({ work, imgClassName }) {
-  if (work.previewImage) {
-    return <img src={work.previewImage} alt={work.title} className={imgClassName} />;
-  }
-
-  if (work.images?.length) {
-    return <img src={work.images[0]} alt={work.title} className={imgClassName} />;
-  }
-
-  if (work.imgUrl) {
-    return (
-      <img
-        src={getImgSrc(images[work.imgUrl])}
-        alt={work.title}
-        className={imgClassName}
-      />
-    );
-  }
-
-  if (work.company) {
-    return (
-      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-brand/15 via-foreground/5 to-brand/5">
-        <img
-          src={work.company.logo}
-          alt={work.company.name}
-          className="h-20 w-20 rounded-2xl border border-border bg-white object-contain p-3 shadow-lg"
-        />
-      </div>
-    );
-  }
-
-  return null;
 }
 
 function FeaturedProjectCard({ work, index, onOpenDetail }) {

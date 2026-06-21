@@ -5,23 +5,13 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Building2, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { AiFillGithub } from 'react-icons/ai';
 import { HiOutlineExternalLink } from 'react-icons/hi';
-import { images } from '@/constants/images';
-import { getImgSrc } from '@/lib/imageUtils';
 import { techStack } from '@/lib/tech-stack';
 import { TechIconCircle } from './tech-icon-circle';
-
-function resolveGallery(work) {
-  const rest = (work.images ?? []).filter((img) => img !== work.previewImage);
-  const gallery = work.previewImage ? [work.previewImage, ...rest] : rest;
-  if (gallery.length) return gallery;
-  if (work.imgUrl) return [getImgSrc(images[work.imgUrl])];
-  if (work.company?.logo) return [work.company.logo];
-  return [];
-}
+import { ProjectGalleryImage, resolveProjectGallery } from './project-media';
 
 export function ProjectDetailModal({ work, onClose }) {
   const [activeImage, setActiveImage] = useState(0);
-  const gallery = work ? resolveGallery(work) : [];
+  const gallery = work ? resolveProjectGallery(work) : [];
 
   useEffect(() => {
     setActiveImage(0);
@@ -77,17 +67,19 @@ export function ProjectDetailModal({ work, onClose }) {
             </button>
 
             <div className="relative h-64 w-full shrink-0 overflow-hidden bg-foreground/5 md:h-full md:w-3/5">
-              {gallery.length > 0 && (
-                <motion.img
-                  key={activeImage}
+              <motion.div
+                key={gallery[activeImage] ?? 'empty'}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.25 }}
+                className="h-full w-full"
+              >
+                <ProjectGalleryImage
                   src={gallery[activeImage]}
                   alt={work.title}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.25 }}
                   className="h-full w-full object-contain"
                 />
-              )}
+              </motion.div>
 
               {gallery.length > 1 && (
                 <>
