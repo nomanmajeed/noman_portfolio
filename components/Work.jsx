@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { motion, useInView, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Building2, Maximize2 } from 'lucide-react';
+import { Building2, ChevronDown, ChevronUp, Maximize2 } from 'lucide-react';
 import { AiFillGithub } from 'react-icons/ai';
 import { HiOutlineExternalLink } from 'react-icons/hi';
 import { worksData } from '@/data';
@@ -263,10 +263,13 @@ function TiltCard({ work, index, onOpenDetail }) {
   );
 }
 
+const INITIAL_VISIBLE_COUNT = 4;
+
 export function Work() {
   const [selectedDomains, setSelectedDomains] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
+  const [showAllProjects, setShowAllProjects] = useState(false);
   const [selectedWork, setSelectedWork] = useState(null);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
@@ -283,6 +286,15 @@ export function Work() {
     })
   );
 
+  const hasMoreProjects = filteredWorks.length > INITIAL_VISIBLE_COUNT;
+  const visibleWorks = showAllProjects
+    ? filteredWorks
+    : filteredWorks.slice(0, INITIAL_VISIBLE_COUNT);
+
+  useEffect(() => {
+    setShowAllProjects(false);
+  }, [selectedDomains, selectedTags, selectedSkills]);
+
   const clearFilters = () => {
     setSelectedDomains([]);
     setSelectedTags([]);
@@ -293,8 +305,11 @@ export function Work() {
     <section
       id="work"
       ref={sectionRef}
-      className="relative bg-background px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
+      className="relative overflow-hidden bg-background px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
     >
+      <div className="brand-glow pointer-events-none absolute right-0 top-0 h-[400px] w-[400px] rounded-full blur-3xl" />
+      <div className="brand-glow pointer-events-none absolute -left-32 bottom-0 h-[380px] w-[380px] rounded-full blur-3xl" />
+
       <div className="relative z-[2] mx-auto max-w-6xl">
         <div className="mb-8">
           <motion.div
@@ -324,7 +339,7 @@ export function Work() {
         )}
 
         <motion.div
-          className="mb-6 flex items-center gap-3 font-[family-name:var(--font-data)] text-xs uppercase tracking-widest text-muted-foreground/60"
+          className="relative mb-6 flex items-center gap-3 font-[family-name:var(--font-data)] text-xs uppercase tracking-widest text-muted-foreground/60"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.4, delay: 0.15 }}
@@ -335,7 +350,7 @@ export function Work() {
         </motion.div>
 
         <motion.div
-          className="mb-8"
+          className="relative mb-8"
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.4, delay: 0.2 }}
@@ -354,23 +369,50 @@ export function Work() {
 
         {filteredWorks.length === 0 ? (
           <motion.p
-            className="py-16 text-center text-sm text-muted-foreground"
+            className="relative py-16 text-center text-sm text-muted-foreground"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
             No projects match these filters.
           </motion.p>
         ) : (
-          <div className="grid gap-8 md:grid-cols-2">
-            {filteredWorks.map((work, index) => (
-              <TiltCard
-                key={work.title}
-                work={work}
-                index={index}
-                onOpenDetail={() => setSelectedWork(work)}
-              />
-            ))}
-          </div>
+          <>
+            <div className="relative grid gap-8 md:grid-cols-2">
+              {visibleWorks.map((work, index) => (
+                <TiltCard
+                  key={work.title}
+                  work={work}
+                  index={index}
+                  onOpenDetail={() => setSelectedWork(work)}
+                />
+              ))}
+            </div>
+
+            {hasMoreProjects && (
+              <div className="relative mt-10 flex justify-center">
+                <button
+                  type="button"
+                  onClick={() => setShowAllProjects((value) => !value)}
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-foreground/5 px-6 py-2.5 text-sm font-medium text-foreground transition-all hover:border-brand/40 hover:bg-brand/10"
+                >
+                  {showAllProjects ? (
+                    <>
+                      Show less
+                      <ChevronUp className="h-4 w-4 opacity-70" />
+                    </>
+                  ) : (
+                    <>
+                      See all projects
+                      <span className="font-[family-name:var(--font-data)] text-xs text-muted-foreground">
+                        ({filteredWorks.length})
+                      </span>
+                      <ChevronDown className="h-4 w-4 opacity-70" />
+                    </>
+                  )}
+                </button>
+              </div>
+            )}
+          </>
         )}
       </div>
 

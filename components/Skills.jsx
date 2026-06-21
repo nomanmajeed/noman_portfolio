@@ -2,7 +2,7 @@
 
 import { useMemo, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ChevronDown, ExternalLink } from 'lucide-react';
+import { Award, ChevronDown, ExternalLink } from 'lucide-react';
 import { experiencesData, profileData } from '@/data';
 import { SectionHeader } from './SectionHeader';
 
@@ -179,6 +179,7 @@ export function Skills() {
       className="relative overflow-hidden bg-background px-6 py-16 md:px-10 md:py-24 lg:px-24 lg:py-32"
     >
       <div className="brand-glow pointer-events-none absolute right-0 top-0 h-[400px] w-[400px] rounded-full blur-3xl" />
+      <div className="brand-glow pointer-events-none absolute -left-32 bottom-0 h-[380px] w-[380px] rounded-full blur-3xl" />
 
       <div className="relative z-[2] mx-auto max-w-6xl">
         <div className="mb-10 md:mb-12">
@@ -235,11 +236,20 @@ export function Skills() {
             <ul className="grid gap-3 md:grid-cols-2">
               {profileData.certifications.map((cert) => (
                 <li
-                  key={cert}
-                  className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground"
+                  key={cert.title}
+                  className="flex items-start gap-3 rounded-xl border border-border bg-foreground/[0.02] p-3.5 transition-colors hover:border-brand/30 hover:bg-foreground/[0.05]"
                 >
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
-                  {cert}
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-brand/20 to-brand/10 ring-1 ring-brand/20">
+                    <Award className="h-4 w-4 text-brand" strokeWidth={1.75} />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold leading-snug text-foreground">
+                      {cert.title}
+                    </p>
+                    <p className="mt-0.5 text-xs text-muted-foreground">
+                      {cert.issuer} <span className="text-muted-foreground/50">·</span> {cert.date}
+                    </p>
+                  </div>
                 </li>
               ))}
             </ul>

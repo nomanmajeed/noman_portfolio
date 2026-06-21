@@ -22,9 +22,9 @@
     { "value": "85%", "label": "Faster Deployments" }
   ],
   "certifications": [
-    "Ultimate Next.js Course — JSMastery (Dec 2024)",
-    "Deep Learning for AI — Dice Analytics (Apr 2019)",
-    "Python and Data Science — Dice Analytics (Aug 2018)",
-    "Merit Scholarship — 2nd Position, CS Dept, COMSATS (2016–2020)"
+    { "title": "Ultimate Next.js Course", "issuer": "JSMastery", "date": "Dec 2024" },
+    { "title": "Deep Learning for AI", "issuer": "Dice Analytics", "date": "Apr 2019" },
+    { "title": "Python and Data Science", "issuer": "Dice Analytics", "date": "Aug 2018" },
+    { "title": "Merit Scholarship", "issuer": "2nd Position, CS Dept, COMSATS", "date": "2016–2020" }
   ]
 }

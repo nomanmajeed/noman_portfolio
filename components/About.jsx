@@ -325,7 +325,8 @@ export function About() {
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(color-mix(in_oklab,var(--foreground)_3%,transparent)_1px,transparent_1px)] bg-[size:30px_30px]" />
       <div className="brand-glow pointer-events-none absolute -left-32 top-1/4 h-[420px] w-[420px] rounded-full blur-3xl" />
-      <div className="brand-glow pointer-events-none absolute -right-32 bottom-0 h-[360px] w-[360px] rounded-full blur-3xl" />
+      <div className="brand-glow pointer-events-none absolute -right-32 top-[58%] h-[320px] w-[320px] rounded-full blur-3xl" />
+      <div className="brand-glow pointer-events-none absolute -left-32 bottom-0 h-[360px] w-[360px] rounded-full blur-3xl" />
 
       <div className="relative z-[2] mx-auto max-w-6xl">
         <motion.div
