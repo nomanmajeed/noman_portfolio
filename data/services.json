@@ -1,0 +1,60 @@
+{
+  "tabs": [
+    {
+      "value": "saas",
+      "icon": "saas",
+      "label": "SaaS Development",
+      "content": {
+        "badge": "Product Engineering",
+        "title": "Ship SaaS products that scale from MVP to millions of users.",
+        "description": "Multi-tenant architecture, subscription billing, role-based access, analytics dashboards, and cloud-native deployments — built with Python backends and modern React/Next.js frontends.",
+        "buttonText": "Start a SaaS project",
+        "buttonHref": "#contact",
+        "imageSrc": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+        "imageAlt": "SaaS analytics dashboard on a laptop screen"
+      }
+    },
+    {
+      "value": "ai-automation",
+      "icon": "ai",
+      "label": "AI Automation",
+      "content": {
+        "badge": "LLM & Agents",
+        "title": "Automate workflows with AI agents and intelligent pipelines.",
+        "description": "Custom LLM integrations, RAG systems, LangChain agents, document processing, and task automation that cut manual work and unlock new product capabilities.",
+        "buttonText": "Explore AI solutions",
+        "buttonHref": "#contact",
+        "imageSrc": "https://images.unsplash.com/photo-1677442136016-2176ec6921d4?auto=format&fit=crop&w=1200&q=80",
+        "imageAlt": "Abstract visualization of artificial intelligence neural networks"
+      }
+    },
+    {
+      "value": "web-apps",
+      "icon": "web",
+      "label": "Web Applications",
+      "content": {
+        "badge": "Full-Stack UI",
+        "title": "Fast, polished web apps your users will love.",
+        "description": "Responsive Next.js and React applications with real-time features, intuitive UX, and performance tuned for production — from internal tools to customer-facing platforms.",
+        "buttonText": "Build your web app",
+        "buttonHref": "#contact",
+        "imageSrc": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+        "imageAlt": "Developer working on a modern web application"
+      }
+    },
+    {
+      "value": "backend-api",
+      "icon": "backend",
+      "label": "Backend & APIs",
+      "content": {
+        "badge": "Systems Design",
+        "title": "Reliable APIs and backend systems built for high load.",
+        "description": "FastAPI and Django REST services, PostgreSQL optimization, Redis caching, Celery workers, microservices, and AWS/GCP infrastructure — proven at fintech, healthcare, and e-commerce scale.",
+        "buttonText": "Discuss backend needs",
+        "buttonHref": "#contact",
+        "imageSrc": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+        "imageAlt": "Server room with data infrastructure"
+      }
+    }
+  ]
+}

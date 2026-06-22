@@ -3,6 +3,7 @@ import worksData from './works.json';
 import experiencesData from './experiences.json';
 import testimonialsData from './testimonials.json';
 import profileData from './profile.json';
+import servicesData from './services.json';
 
 export { techStack } from '@/lib/tech-stack';
 
@@ -12,6 +13,7 @@ export {
   experiencesData,
   testimonialsData,
   profileData,
+  servicesData,
 };
 
 /** @deprecated Use `techStack` from `@/lib/tech-stack` instead. */
